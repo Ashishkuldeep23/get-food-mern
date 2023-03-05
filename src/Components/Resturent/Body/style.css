@@ -20,8 +20,9 @@
 
 
 .cardAk{
+    background-color: red !important;
     padding: 0.1vh;
-    max-width: 37vh ;
+    max-width: 37vh;
     margin-right: 4vh;
     margin-top: 4vh;
     border-radius: 1.5vh;
@@ -49,22 +50,6 @@
     width: 100%;
     border-radius: 1vh;
     object-fit: cover;
-}
-
-
-.description_div{
-    min-height: 22vh;
-}
-
-
-.more_btn{
-    color: blue;
-    font-weight: 500;
-}
-
-.more_btn:hover{
-    font-weight: bold;
-    cursor: pointer;
 }
 
 

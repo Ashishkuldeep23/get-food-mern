@@ -38,7 +38,7 @@ const Signin = () => {
       body: JSON.stringify(formData)
     }
     
-    let createUser = await fetch("http://localhost:3001/signIn" , option)
+    let createUser = await fetch("https://get-food-mern-backend.onrender.com/signIn" , option)
 
     let data = await createUser.json()
 
@@ -50,8 +50,9 @@ const Signin = () => {
 
       setFormData({name : "",address : "",email:"",password:"",whenCreated:""})
 
-      navigate("/logIn")
+      localStorage.setItem("get-food-signin" , "done")
 
+      navigate("/logIn")
       return alert("Data created successfull")
 
 

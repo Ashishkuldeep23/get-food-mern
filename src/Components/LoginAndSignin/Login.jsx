@@ -32,7 +32,7 @@ const Login = () => {
       body: JSON.stringify(logInData)
     }
 
-    let logInUser = await fetch("http://localhost:3001/logIn" , option)
+    let logInUser = await fetch("https://get-food-mern-backend.onrender.com/logIn" , option)
     let data = await logInUser.json()
 
 
@@ -47,7 +47,6 @@ const Login = () => {
       localStorage.setItem("getFoodToken" , JSON.stringify(data.token))
 
       navigate("/")
-
       return alert("LogIn successfull")
 
     }

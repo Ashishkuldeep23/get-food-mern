@@ -17,15 +17,37 @@ const Navbar = () => {
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse  " id="navbarNav">
-                            <a className="nav-link active text-white p-2 m-1 border border-white   rounded ">My Orders</a>
-                            <ul className="navbar-nav ms-auto d-inline-block d-sm-flex ">
-                                <li className="nav-item border border-white   rounded m-1  px-1">
-                                    <Link className="nav-link active " aria-current="page" to={"/logIn"} >LogIn</Link>
-                                </li>
-                                <li className="nav-item border border-white rounded m-1  px-1">
-                                    <Link className="nav-link active" to={"/signIn"}>SignIn</Link>
-                                </li>
-                            </ul>
+                            {
+                                (localStorage.getItem("getFoodToken")) 
+
+                                &&
+                                <a className="nav-link active text-white p-2 m-1 border border-2 border-white rounded ">My Orders</a>
+                            }
+
+                            {
+                                (!localStorage.getItem("getFoodToken"))
+
+                                ?
+                                <ul className="navbar-nav ms-auto d-inline-block d-sm-flex ">
+                                    <li className="nav-item  border border-2 border-white rounded m-1  px-1">
+                                        <Link className="nav-link active fw-bold" to={"/"} >Cart</Link>
+                                    </li>
+                                    <li className="nav-item rounded bg-white m-1  px-1" onClick={()=>{  localStorage.removeItem("getFoodToken"); alert("LogOut Successful"); }}>
+                                        <Link className="nav-link active text-danger fw-bold" to={"/"}>LogOut</Link>
+                                    </li>
+                                </ul>
+
+                                :
+                                <ul className="navbar-nav ms-auto d-inline-block d-sm-flex ">
+                                    <li className="nav-item  bg-white  rounded m-1  px-1">
+                                        <Link className="nav-link active text-success fw-bold"  to={"/logIn"} >LogIn</Link>
+                                    </li>
+                                    <li className="nav-item border border-2 border-white  rounded m-1  px-1">
+                                        <Link className="nav-link active fw-bold" to={"/signIn"}>SignIn</Link>
+                                    </li>
+                                </ul>
+
+                            }
                         </div>
                     </div>
                 </nav>

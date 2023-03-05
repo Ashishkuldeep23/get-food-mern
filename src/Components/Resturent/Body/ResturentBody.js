@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import "./style.css"
 
-import foodItemApi from "../foodItemsAPI"
 
 import Card from '../card/card'
 
@@ -77,7 +76,7 @@ const ResturentBody = ({ items, setShowMoreAboutBtn, dataOfShowMoreAbout, foodCa
             : 
 
             <div>
-              <p className='text-warning fs-3'>LOADING...</p>
+              <p className='text-warning fs-3'>LOADING DATA...</p>
               <hr />
               <Skeleton />
               <Skeleton />
@@ -87,8 +86,8 @@ const ResturentBody = ({ items, setShowMoreAboutBtn, dataOfShowMoreAbout, foodCa
               <Skeleton />
               <Skeleton />
               <Skeleton />
-              <p>Data loading or check your data </p>
-              <p>For Developer :- Backend server is stopped or crashed.</p>
+              <p className='mt-3'>*Data loading or check your data (May be slow) </p>
+              <p className='mt-2'>*For Developer :- Backend server is stopped or crashed.</p>
             </div>
 
           }
