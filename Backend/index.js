@@ -14,6 +14,7 @@ mongoose.connect( "mongodb+srv://ashishkuldeep23:RAPXp7lktCcf8jBm@cluster0.xtasc
 //     res.send("Hello World!")
 // } )
 
+// // // Below for handle CORS Policy error --------->
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
     res.header(

@@ -6,7 +6,7 @@ import React from 'react'
 
 
 // // // Menu Section starts here ------------------------->
-const ResturentMenu = ({ findFood, menuList  }) => {
+const ResturentMenu = ({ findFood, menuList }) => {
 
 
     return (
@@ -25,13 +25,29 @@ const ResturentMenu = ({ findFood, menuList  }) => {
                     {/* Two all coming becz left from li tag and right from in unique list  */}
 
                     {
-                        menuList.map((ce, i) => {
-                            return(
-                                <li className="nav-item" onClick={() => { findFood(ce) }} key={i} >
-                                    <a className="nav-link text-warning fw-bold" href="#">{ce}</a>
+                        (menuList.length !== 0)
+                            ?
+                            menuList.map((item, i) => {
+                                return (
+                                    <li className="nav-item" onClick={() => { findFood(item) }} key={i} >
+                                        <a className="nav-link text-warning fw-bold" href="#">{item}</a>
+                                    </li>
+                                )
+
+                            })
+
+                            :
+                            <div className='d-flex'>
+                                <li className="nav-item" >
+                                    <a className="nav-link text-warning fw-bold" href="#">I<sub>st</sub></a>
                                 </li>
-                            )
-                        })
+                                <li className="nav-item"  >
+                                    <a className="nav-link text-warning fw-bold" href="#">II<sub>nd</sub></a>
+                                </li>
+                                <li className="nav-item"  >
+                                    <a className="nav-link text-warning fw-bold" href="#">III<sub>rd</sub></a>
+                                </li>
+                            </div>
                     }
 
 

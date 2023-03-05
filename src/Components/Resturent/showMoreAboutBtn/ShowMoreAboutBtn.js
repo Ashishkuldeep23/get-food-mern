@@ -3,7 +3,7 @@ import React from 'react'
 import "./style.css"
 
 
-const ShowMoreAboutBtn = ({ setShowMoreAboutBtn, color, showMoreAboutData }) => {
+const ShowMoreAboutBtn = ({ setShowMoreAboutBtn,  showMoreAboutData }) => {
 
 
 
@@ -18,10 +18,10 @@ const ShowMoreAboutBtn = ({ setShowMoreAboutBtn, color, showMoreAboutData }) => 
 
   return (
     <>
-      <div className={!color ? 'container  card_main' : 'container  card_main_dark_mode'} >
+      <div className='container  card_main_dark_mode' >
 
         {/* Below btn is used for back -------> */}
-        <button className='card_back_btn' onClick={backToNormal}>Back</button>
+        <button className='card_back_btn' onClick={backToNormal}><i className="fa-solid fa-house"></i> Back</button>
 
 
 
@@ -37,8 +37,7 @@ const ShowMoreAboutBtn = ({ setShowMoreAboutBtn, color, showMoreAboutData }) => 
             <h4>Category : {category}</h4>
 
             <button className='btn btn-outline-success card_btn_Ak' onClick={() => { alert([name, price]) }}>Order Now</button>
-
-
+            
           </section>
 
 

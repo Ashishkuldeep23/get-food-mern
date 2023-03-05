@@ -1,9 +1,10 @@
 import React from 'react'
 import "../Body/style.css"
 
+
 const Card = (props) => {
 
-    const { image, name, price, size=["Regular" , "Special"], quantitiy=[1,2,3,4,5] } = props.data
+    const { image, name, price, size = ["Regular", "Special"], quantitiy = [1, 2, 3, 4, 5] } = props.data
 
 
     const orderFunc = (foodName, foodPrice) => {
@@ -37,25 +38,28 @@ const Card = (props) => {
                     <h3 className='animate__animated animate__zoomInDown checkAk '>{name}</h3>
                     <div className='d-flex  justify-content-between mb-1'>
 
-                        <div>
+                        <div style={ {  marginBottom : "1.5vh"} } >
 
-                        <select className='bg-dark text-white h-100 rounded-start'>
-                           {
-                            size.map( (item , i)=>{return  <option key={i} value={item}>{item}</option>} )
-                           }
-                        </select>
-                        <select className='bg-dark text-white h-100 rounded-end'>
-                           {
-                            quantitiy.map( (item , i)=>{return  <option key={i} value={item}>{item}</option>} )
-                           }
-                        </select>
+                            <select className='bg-dark text-white h-100 rounded-start'>
+                                {
+                                    size.map((item, i) => { return <option key={i} value={item}>{item}</option> })
+                                }
+                            </select>
+                            <select className='bg-dark text-white h-100 rounded-end'>
+                                {
+                                    quantitiy.map((item, i) => { return <option key={i} value={item}>{item}</option> })
+                                }
+                            </select>
                         </div>
 
                         <h4>₹{price}/-</h4>
                     </div>
                     <hr />
-                    <button className='btn btn-outline-primary mx-2 card_btn_Ak' onClick={() => { about_more_func(props.data) }}>About</button>
-                    <button className='btn btn-outline-success ms-5 card_btn_Ak' onClick={() => { orderFunc(name, price) }}>Add</button>
+
+                    <div className='d-flex justify-content-between'>
+                        <button className='btn btn-outline-primary card_btn_Ak' onClick={() => { about_more_func(props.data) }}>About</button>
+                        <button className='btn btn-outline-success card_btn_Ak' onClick={() => { orderFunc(name, price) }}>Add Cart</button>
+                    </div>
                 </div>
 
             </div>
