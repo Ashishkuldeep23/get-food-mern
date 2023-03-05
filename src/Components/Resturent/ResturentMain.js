@@ -81,7 +81,7 @@ const ResturentMain = ({ darkMode }) => {
         'Content-Type': 'application/json'
       }
     }
-    let loadFoodData = await fetch("http://localhost:3001/getFoodData", options)
+    let loadFoodData = await fetch("https://get-food-mern-backend.onrender.com/getfoodData", options)
     let data = await loadFoodData.json()
 
     if (data.status === false) {

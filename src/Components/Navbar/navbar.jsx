@@ -25,7 +25,7 @@ const Navbar = () => {
                             }
 
                             {
-                                (!localStorage.getItem("getFoodToken"))
+                                (localStorage.getItem("getFoodToken"))
 
                                 ?
                                 <ul className="navbar-nav ms-auto d-inline-block d-sm-flex ">
