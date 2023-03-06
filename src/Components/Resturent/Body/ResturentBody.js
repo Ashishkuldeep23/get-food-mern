@@ -76,7 +76,7 @@ const ResturentBody = ({ items, setShowMoreAboutBtn, dataOfShowMoreAbout, foodCa
             : 
 
             <div>
-              <p className='text-warning fs-3'>LOADING DATA...</p>
+              <p className='text-warning fs-3 mt-4'>LOADING DATA...</p>
               <hr />
               <Skeleton />
               <Skeleton />

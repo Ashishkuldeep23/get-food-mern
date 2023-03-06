@@ -3,10 +3,8 @@ import React from 'react'
 const Skeleton = () => {
     return (
         <>
-            {/* <div className='d-flex ' > */}
 
             <div className='   border border-3 border-warning  rounded p-2' style={{ width: "37vh", display: "inline-block", margin: "4vh 4vh 0 0" }}>
-                {/* <img className='foodImage' /> */}
 
                 <div className='foodImage  border-bottom d-flex justify-content-center align-items-center ' >
                     <div className="spinner-border text-danger fs-1 h-75 w-75" role="status">
