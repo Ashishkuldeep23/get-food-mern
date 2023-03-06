@@ -43,13 +43,13 @@ const Login = () => {
     
     if(data.status === true){
       setLogInData({email:"",password:""})
-      let userName = JSON.stringify(data.data.name)
+      let userName =data.data.name
       localStorage.setItem("getFoodToken" , JSON.stringify(data.token))
       localStorage.setItem("getFoodUserName" , JSON.stringify(userName))
 
 
       navigate("/")
-      return alert("LogIn successfull. Welcome,"+userName)
+      return alert("LogIn successfull. Welcome,"+JSON.stringify(userName))
 
     }
 
