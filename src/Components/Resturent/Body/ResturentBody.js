@@ -77,6 +77,7 @@ const ResturentBody = ({ items, setShowMoreAboutBtn, dataOfShowMoreAbout, foodCa
 
             <div>
               <p className='text-warning fs-3 mt-4'>LOADING DATA...</p>
+              <p className='mt-2'>* Refresh Page, if not getting data after long time (max 7 second).</p>
               <hr />
               <Skeleton />
               <Skeleton />
