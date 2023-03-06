@@ -16,21 +16,28 @@ import ShowMoreAboutBtn from './showMoreAboutBtn/ShowMoreAboutBtn'
 
 
 // // // <======================= Main Componant ===============================>
-const ResturentMain = ({ darkMode }) => {
+const ResturentMain = ({foodCat , menuList , items  , findFood}) => {
 
-  const [allDataOfApi, setAllDataOfApi] = useState([[],[]])
+  // const [allDataOfApi, setAllDataOfApi] = useState([[],[]])
 
-  const [items, setItems] = useState(allDataOfApi[0])
+  // const [items, setItems] = useState(allDataOfApi[0])
 
-  const [menuList, setmenuList] = useState([])
-
-  const [foodCat, setFoodCat] = useState(allDataOfApi[1])
+  // const [menuList, setmenuList] = useState([])
+  
+  // const [foodCat, setFoodCat] = useState(allDataOfApi[1])
 
 
 
   // // // Below both is used in show more data button clicked ---------->
   const [showMoreAboutBtn, setShowMoreAboutBtn] = useState(false)
   const [showMoreAboutData, setShowMoreAboutData] = useState("")
+
+
+
+
+  /**
+   * All Improtant function and state var , now in app.js because i don't want to reload data at every endpoint change.
+  */
 
 
   // // // To see all category of list 
@@ -46,19 +53,19 @@ const ResturentMain = ({ darkMode }) => {
 
 
 
-  // // // Below function is used in show item by category ----->
-  const findFood = (category) => {
-    if (category === "All") {
-      return setItems(allDataOfApi[0])
-    }
+  // // // // Below function is used in show item by category ----->
+  // const findFood = (category) => {
+  //   if (category === "All") {
+  //     return setItems(allDataOfApi[0])
+  //   }
 
-    // // // In below line apply filter on Api file (becz api file is a arr so we can use filter over there)
-    const searchByMenu = allDataOfApi[0].filter((curEle) => {
-      return curEle.category === category
-    })
+  //   // // // In below line apply filter on Api file (becz api file is a arr so we can use filter over there)
+  //   const searchByMenu = allDataOfApi[0].filter((curEle) => {
+  //     return curEle.category === category
+  //   })
 
-    setItems(searchByMenu)
-  }
+  //   setItems(searchByMenu)
+  // }
 
 
 
@@ -72,44 +79,44 @@ const ResturentMain = ({ darkMode }) => {
   }
 
 
-  async function loadData() {
-    // alert("ok Called")
+  // async function loadData() {
+  //   // alert("ok Called")
 
-    let options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-    let loadFoodData = await fetch("https://get-food-mern-backend.onrender.com/getfoodData", options)
-    let data = await loadFoodData.json()
+  //   let options = {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   }
+  //   let loadFoodData = await fetch("https://get-food-mern-backend.onrender.com/getfoodData", options)
+  //   let data = await loadFoodData.json()
 
-    if (data.status === false) {
-      alert(data.message)
-    }
-
-
-
-    if (data.status === true) {
-      setAllDataOfApi(data.data)
-      setItems(data.data[0])
-      setFoodCat(data.data[1])
-
-      // // // Below is used for menu (very first horizontal)
-      const allListOfCategory = [...new Set(data.data[0].map((item) => {
-        return item.category
-      })), "All"
-      ]
-
-      setmenuList(allListOfCategory)
-    }
-
-  }
+  //   if (data.status === false) {
+  //     return alert(data.message)
+  //   }
 
 
-  useEffect(() => {
-    loadData()
-  }, [])
+
+  //   if (data.status === true) {
+  //     setAllDataOfApi(data.data)
+  //     setItems(data.data[0])
+  //     setFoodCat(data.data[1])
+
+  //     // // // Below is used for menu (very first horizontal)
+  //     const allListOfCategory = [...new Set(data.data[0].map((item) => {
+  //       return item.category
+  //     })), "All"
+  //     ]
+
+  //     setmenuList(allListOfCategory)
+  //   }
+
+  // }
+
+
+  // useEffect(() => {
+  //   loadData()
+  // }, [])
 
 
 
@@ -118,16 +125,10 @@ const ResturentMain = ({ darkMode }) => {
     <div id='resturentId' className=' min-vh-100 p-3 d-flex flex-column align-items-center'>
 
 
-      {/* <ResturentMenu findFood ={findFood}  menuList={menuList}   color={darkMode} /> */}
-      {/* <ResturentBody items={items} color={darkMode} /> */}
-      {/* value of darkmode set to color props name for further use*/}
-
-
-
       {/* Expperiment duing here ---------------> */}
 
       {
-        !showMoreAboutBtn && <ResturentMenu findFood={findFood} menuList={menuList} color={darkMode} />
+        !showMoreAboutBtn && <ResturentMenu findFood={findFood} menuList={menuList}  />
       }
 
       {

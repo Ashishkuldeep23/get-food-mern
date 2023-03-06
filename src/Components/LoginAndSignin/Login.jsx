@@ -43,11 +43,13 @@ const Login = () => {
     
     if(data.status === true){
       setLogInData({email:"",password:""})
-
+      let userName = JSON.stringify(data.data.name)
       localStorage.setItem("getFoodToken" , JSON.stringify(data.token))
+      localStorage.setItem("getFoodUserName" , JSON.stringify(userName))
+
 
       navigate("/")
-      return alert("LogIn successfull")
+      return alert("LogIn successfull. Welcome,"+userName)
 
     }
 
@@ -61,7 +63,7 @@ const Login = () => {
     <>
       <div id='log_in_div' className="log_sing_main" style={{background:"url('https://img.delicious.com.au/nnzbvV91/w1200/del/2018/05/green-and-gold-rice-bowls-80254-2.jpg')" , backgroundSize: "cover"}}>
 
-        <div className="log_sing_second border border-info  rounded rounded-3 p-5 bg-dark">
+        <div className="log_sing_second border  border-info  rounded rounded-3 p-5 bg-dark">
 
           <form>
             <h1 className='text-center text-info'>LogIn</h1>

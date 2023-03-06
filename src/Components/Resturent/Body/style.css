@@ -22,7 +22,7 @@
 .cardAk{
     background-color: red !important;
     padding: 0.1vh;
-    max-width: 37vh;
+    width: 37vh;
     margin-right: 4vh;
     margin-top: 4vh;
     border-radius: 1.5vh;
@@ -81,4 +81,10 @@
         border-radius: 5vh;
     }
 
+}
+
+@media (max-width:305px){
+    .cardAk{
+        width: 95%;
+    }
 }
