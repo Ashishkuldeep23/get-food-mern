@@ -1,5 +1,3 @@
-
-
 .cardHolderAk{
     width: 80vw ;
     background-image: linear-gradient( 120deg , cyan , transparent , white   , transparent , yellow );
@@ -9,8 +7,10 @@
 
 .darkCardHolderAk{
     width: 80vw ;
-    background-image: linear-gradient( 120deg , rgb(94, 94, 41) , transparent    , black  , transparent , rgb(35, 83, 83) );
+    background-image: linear-gradient( 120deg , rgb(94, 94, 41), transparent    , #212529  , transparent , rgb(35, 83, 83) );
     border-radius: 100vh;
+    margin: 5vh 0;
+    padding-bottom: 8vh;
 }
 
 .cardHolderInner{
@@ -82,7 +82,7 @@
 
 }
 
-@media (max-width:340px){
+@media (max-width:315px){
     .cardAk{
         width: 95%;
     }

@@ -37,7 +37,7 @@ const ResturentMenu = ({ findFood, menuList }) => {
                             })
 
                             :
-                            <div className='d-flex'>
+                            <ul className="nav nav-tabs justify-content-center">
                                 <li className="nav-item" >
                                     <a className="nav-link text-warning fw-bold" href="#">I<sub>st</sub></a>
                                 </li>
@@ -47,28 +47,9 @@ const ResturentMenu = ({ findFood, menuList }) => {
                                 <li className="nav-item"  >
                                     <a className="nav-link text-warning fw-bold" href="#">III<sub>rd</sub></a>
                                 </li>
-                            </div>
+                            </ul>
                     }
-
-
-                    {/* <li className="nav-item" onClick={()=>{ findFood("breakfast") }}>
-                        <a className="nav-link " aria-current="page" href="#">Breakfast</a>
-                    </li>
-                    <li className="nav-item" onClick={()=>{ findFood("lunch") }} >
-                        <a className="nav-link" href="#">Lunch</a>
-                    </li>
-                    <li className="nav-item" onClick={()=>{ findFood("dinner") }} >
-                        <a className="nav-link" href="#">Dinner</a>
-                    </li>
-                    <li className="nav-item" onClick={()=>{ findFood("evening") }} >
-                        <a className="nav-link" href="#">evening</a>
-                    </li>
-
-                    <li className="nav-item" onClick={()=> setItems(foodItems)} >
-                        <a className="nav-link" href="#">All</a>
-                    </li> */}
-
-
+                    
                 </ul>
 
             </div>

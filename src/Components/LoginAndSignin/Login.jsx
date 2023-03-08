@@ -32,7 +32,7 @@ const Login = () => {
       body: JSON.stringify(logInData)
     }
 
-    let logInUser = await fetch("https://get-food-mern-backend.onrender.com/logIn" , option)
+    let logInUser = await fetch(`${process.env.REACT_APP_BACKEND}/logIn` , option)
     let data = await logInUser.json()
 
 

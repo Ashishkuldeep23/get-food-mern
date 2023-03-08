@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 import Navbar from "./Components/Navbar/navbar";
@@ -9,13 +8,18 @@ import Signin from "./Components/LoginAndSignin/Signin";
 
 import { Route, Routes } from "react-router-dom";
 
+
+
+
+
+// // // Main UI function -------------->
 function App() {
 
 
   const [allDataOfApi, setAllDataOfApi] = useState([[], []])
 
   const [items, setItems] = useState(allDataOfApi[0])
-
+ 
   const [menuList, setmenuList] = useState([])
 
   const [foodCat, setFoodCat] = useState(allDataOfApi[1])
@@ -47,7 +51,8 @@ function App() {
         'Content-Type': 'application/json'
       }
     }
-    let loadFoodData = await fetch("https://get-food-mern-backend.onrender.com/getfoodData", options)
+
+    let loadFoodData = await fetch(`${process.env.REACT_APP_BACKEND}/getfoodData`, options)
     let data = await loadFoodData.json()
 
     if (data.status === false) {
@@ -92,8 +97,8 @@ function App() {
               menuList={menuList}
               foodCat={foodCat}
               findFood={findFood} />
-          </div>
-        } />
+          </div>  }
+        />
         <Route path="/logIn" element={<Login />} />
         <Route path="/signIn" element={<Signin />} />
       </Routes>
