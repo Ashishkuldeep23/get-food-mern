@@ -24,7 +24,7 @@ const Navbar = () => {
                                 <div className='d-sm-flex'>
 
                                     <a className="nav-link active text-white p-2 m-1 border border-2 border-white rounded fw-bold d-inline ">My Orders</a>
-                                    <a className="nav-link active text-white p-2 m-1 fw-bold ">Welcome,{localStorage.getItem("getFoodUserName") || "Please LogOut and LogIn Again"}</a>
+                                    <a className="nav-link active text-white p-2 m-1 fw-bold ">Welcome,{ (localStorage.getItem("getFoodUserName")).toString() || "Please LogOut and LogIn Again"}</a>
                                 </div>
                             }
 
