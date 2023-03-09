@@ -13,7 +13,7 @@ const ShowMoreAboutBtn = ({ setShowMoreAboutBtn,  showMoreAboutData }) => {
 
   let dataOfClickedCard = JSON.parse(showMoreAboutData)
   // // // console.log(dataOfClickedCard)
-  const { id, image = "https://images.livehindustan.com/uploadimage/photostory/momos1484727906_big~18~01~2017~1489334693_500X375.jpg", name = "Name Of Item", category = "Category", price = "Price XXXX", description = "Description" } = dataOfClickedCard
+  const { id, image = "https://images.livehindustan.com/uploadimage/photostory/momos1484727906_big~18~01~2017~1489334693_500X375.jpg", name = "Name Of Item", category = "Category", price = "Price XXXX", description = "Description" , subcategory="Subcategory" } = dataOfClickedCard
 
 
   return (
@@ -32,9 +32,10 @@ const ShowMoreAboutBtn = ({ setShowMoreAboutBtn,  showMoreAboutData }) => {
 
           <section className='text-start'>
 
-            <h2>Name : {name}</h2>
-            <h4>Price : {price}</h4>
+            <h2 className='animate__animated animate__zoomInDown checkAk '>Name : {name}</h2>
+            <h4 className='animate__animated  animate__rubberBand'>Price : ₹ {price}/-</h4>
             <h4>Category : {category}</h4>
+            <h4>Subcategory : {subcategory}</h4>
 
             <button className='btn btn-outline-success card_btn_Ak' onClick={() => { alert([name, price]) }}>Order Now</button>
             

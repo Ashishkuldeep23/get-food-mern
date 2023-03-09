@@ -52,7 +52,7 @@ const Card = (props) => {
                             </select>
                         </div>
 
-                        <h4>₹{price}/-</h4>
+                        <h4 className='animate__animated  animate__rubberBand'>₹ {price}/-</h4>
                     </div>
                     <hr />
 
