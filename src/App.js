@@ -6,7 +6,7 @@ import ResturentMain from "./Components/Resturent/ResturentMain";
 import Login from "./Components/LoginAndSignin/Login";
 import Signin from "./Components/LoginAndSignin/Signin";
 
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 
 
@@ -101,6 +101,7 @@ function App() {
         />
         <Route path="/logIn" element={<Login />} />
         <Route path="/signIn" element={<Signin />} />
+        <Route path="*" element={ <Navigate to="/" /> } />
       </Routes>
     </div>
   );
