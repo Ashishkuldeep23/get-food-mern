@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom";
+
+
+import Modal from '../Modal/Modal';
+
+import Cart from "../Cart/Cart"
+
 
 import "./style.css"
 
 const Navbar = () => {
+
+    const [viewModal , setViewModal] = useState(false)
+
     return (
         <>
 
@@ -34,7 +43,7 @@ const Navbar = () => {
                                     ?
                                     <ul className="navbar-nav ms-auto d-inline-block d-sm-flex ">
                                         <li className="nav-item  border border-2 border-white rounded m-1  px-1">
-                                            <Link className="nav-link active fw-bold" to={"/"} >Cart</Link>
+                                            <Link className="nav-link active fw-bold" to={"/"} onClick={ ()=>{setViewModal(true)}}>Cart 2 </Link>
                                         </li>
                                         <li className="nav-item rounded bg-white m-1  px-1" onClick={() => { localStorage.removeItem("getFoodToken"); alert("LogOut Successful"); }}>
                                             <Link className="nav-link active text-danger fw-bold" to={"/"}>LogOut</Link>
@@ -53,6 +62,9 @@ const Navbar = () => {
 
                             }
                         </div>
+
+
+                        {viewModal && <Modal onClose={ ()=>{setViewModal(false)} }> <Cart /> </Modal>}
                     </div>
                 </nav>
 

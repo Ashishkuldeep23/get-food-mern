@@ -6,8 +6,9 @@ import ResturentMain from "./Components/Resturent/ResturentMain";
 import Login from "./Components/LoginAndSignin/Login";
 import Signin from "./Components/LoginAndSignin/Signin";
 
-import { Navigate, Route, Routes } from "react-router-dom";
+import Cart from "./Components/Cart/Cart"
 
+import { Navigate, Route, Routes } from "react-router-dom";
 
 
 
@@ -86,7 +87,7 @@ function App() {
 
   return (
     <div>
-
+    
       <Routes>
         <Route path="/" element={
           <div>
