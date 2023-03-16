@@ -2,9 +2,9 @@ import React from 'react'
 import "../Body/style.css"
 
 
-const Card = (props) => {
+const Card = ({data , dataOfShowMoreAbout , setShowMoreAboutBtn  }) => {
 
-    const { image, name, price, size = ["Regular", "Special"], quantitiy = [1, 2, 3, 4, 5] } = props.data
+    const { image, name, price, size = ["Regular", "Special"], quantitiy = [1, 2, 3, 4, 5] } = data
 
 
     const orderFunc = (foodName, foodPrice) => {
@@ -22,8 +22,8 @@ const Card = (props) => {
 
         // alert(clickedEle.id+"."+clickedEle.name)
 
-        props.dataOfShowMoreAbout(clickedEle)
-        props.setShowMoreAboutBtn(true)
+        dataOfShowMoreAbout(clickedEle)
+        setShowMoreAboutBtn(true)
 
     }
 
@@ -57,7 +57,7 @@ const Card = (props) => {
                     <hr />
 
                     <div className='d-flex justify-content-between'>
-                        <button className='btn btn-outline-primary card_btn_Ak' onClick={() => { about_more_func(props.data) }}>About</button>
+                        <button className='btn btn-outline-primary card_btn_Ak' onClick={() => { about_more_func(data) }}>About</button>
                         <button className='btn btn-outline-success card_btn_Ak' onClick={() => { orderFunc(name, price) }}>Add Cart</button>
                     </div>
                 </div>

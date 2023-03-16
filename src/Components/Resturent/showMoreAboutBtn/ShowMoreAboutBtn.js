@@ -21,7 +21,8 @@ const ShowMoreAboutBtn = ({ setShowMoreAboutBtn,  showMoreAboutData }) => {
       <div className='container  card_main_dark_mode' >
 
         {/* Below btn is used for back -------> */}
-        <button className='card_back_btn' onClick={backToNormal}><i className="fa-solid fa-house"></i> Back</button>
+        {/* Not using now because onClose is given in modal component.  */}
+        {/* <button className='card_back_btn' onClick={backToNormal}><i className="fa-solid fa-house"></i> Back</button> */}
 
 
 
@@ -62,7 +63,7 @@ const ShowMoreAboutBtn = ({ setShowMoreAboutBtn,  showMoreAboutData }) => {
             <img src="https://i.pinimg.com/564x/72/6e/92/726e92a0ef5a07e46e0403ae36c0b228.jpg" id="about_img" alt="Ashish's Pic" />
           </div> */}
 
-          <div className='bg-primary  rounded  py-4 px-2 text-white' >
+          <div className=' border  border-info rounded  py-4 px-2 text-white' >
             <h4 className='fw-bold'>Ashish Kuldeep</h4>
             <h6>MERN Stack (Learning)</h6>
 

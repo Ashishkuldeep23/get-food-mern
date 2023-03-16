@@ -11,8 +11,8 @@ const ResturentBody = ({ items, setShowMoreAboutBtn, dataOfShowMoreAbout, foodCa
 
   // const [foodCat, setFoodCat] = useState([foodItemApi])
 
-  // // // Below useState for show more button           
-  const [showMoreDes, setShowMoreDes] = useState(false)
+  // Below useState for show more button           
+  // const [showMoreDes, setShowMoreDes] = useState(false)
 
   // const [ itemsMain , setItemsMain ]=useState(null);
   // console.log(items)

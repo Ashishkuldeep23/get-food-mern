@@ -10,27 +10,27 @@ import ShowMoreAboutBtn from './showMoreAboutBtn/ShowMoreAboutBtn'
 // import foodItemsApi from "./foodItemsAPI"
 
 
-
+import Modal from '../Modal/Modal'
 
 
 
 
 // // // <======================= Main Componant ===============================>
-const ResturentMain = ({foodCat , menuList , items  , findFood}) => {
+const ResturentMain = ({ foodCat, menuList, items, findFood }) => {
 
   // const [allDataOfApi, setAllDataOfApi] = useState([[],[]])
 
   // const [items, setItems] = useState(allDataOfApi[0])
 
   // const [menuList, setmenuList] = useState([])
-  
+
   // const [foodCat, setFoodCat] = useState(allDataOfApi[1])
 
 
 
   // // // Below both is used in show more data button clicked ---------->
   const [showMoreAboutBtn, setShowMoreAboutBtn] = useState(false)
-  const [showMoreAboutData, setShowMoreAboutData] = useState("")
+  const [showMoreAboutData, setShowMoreAboutData] = useState("")  
 
 
 
@@ -74,6 +74,7 @@ const ResturentMain = ({foodCat , menuList , items  , findFood}) => {
 
   function dataOfShowMoreAbout(value) {
     let inStr = JSON.stringify(value)
+
     setShowMoreAboutData(inStr)
     return value
   }
@@ -128,7 +129,7 @@ const ResturentMain = ({foodCat , menuList , items  , findFood}) => {
       {/* Expperiment duing here ---------------> */}
 
       {
-        !showMoreAboutBtn && <ResturentMenu findFood={findFood} menuList={menuList}  />
+        !showMoreAboutBtn && <ResturentMenu findFood={findFood} menuList={menuList} />
       }
 
       {
@@ -141,10 +142,14 @@ const ResturentMain = ({foodCat , menuList , items  , findFood}) => {
             foodCat={foodCat}
           />
           :
-          <ShowMoreAboutBtn
-            setShowMoreAboutBtn={setShowMoreAboutBtn}
-            showMoreAboutData={showMoreAboutData}
-          />
+
+          <Modal onClose={()=>{setShowMoreAboutBtn(false)}} title="About Food">
+
+            <ShowMoreAboutBtn
+              setShowMoreAboutBtn={setShowMoreAboutBtn}
+              showMoreAboutData={showMoreAboutData}
+            />
+          </Modal>
       }
 
 
