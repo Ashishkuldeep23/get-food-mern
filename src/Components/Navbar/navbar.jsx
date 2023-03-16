@@ -18,6 +18,8 @@ const Navbar = () => {
     // // // Below state var is used to check user is previously logedIn or not.
     const [isLogedIn , setIsLogedIn] = useState(localStorage.getItem("getFoodToken"))
 
+    const [cartValue , setCartValue] = useState(2)
+
     return (
         <>
 
@@ -37,7 +39,7 @@ const Navbar = () => {
                                 &&
 
                                 <button className="rounded border border-2 border-white rounded m-1  p-2 bg-success d-sm-none" style={{ marginLeft: "80vh" }}>
-                                    <Link className="nav-link active fw-bold text-white" to={"/"} onClick={() => { setViewModalCart(true) }}>Cart 5 </Link>
+                                    <Link className="nav-link active fw-bold text-white" to={"/"} onClick={() => { setViewModalCart(true) }}><i className="fa-solid fa-cart-shopping"></i> <span className="badge rounded-pill bg-danger">{cartValue}</span> </Link>
                                 </button>
                             }
 
@@ -69,7 +71,7 @@ const Navbar = () => {
                                 ?
                                 <ul className="navbar-nav ms-auto d-inline-block d-sm-flex ">
                                     <li className="nav-item  border border-2 border-white rounded m-1 px-1 d-none d-sm-block">
-                                        <Link className="nav-link active fw-bold" to={"/"} onClick={() => { setViewModalCart(true) }}>Cart 2 </Link>
+                                        <Link className="nav-link active fw-bold" to={"/"} onClick={() => { setViewModalCart(true) }}><i className="fa-solid fa-cart-shopping"></i> <span className="badge rounded-pill bg-danger">{cartValue}</span> </Link>
                                     </li>
                                     <li className="nav-item rounded bg-white m-1  px-1" onClick={() => { localStorage.removeItem("getFoodToken"); alert("LogOut Successful"); }}>
                                         <Link className="nav-link active text-danger fw-bold" to={"/"}>LogOut</Link>

@@ -42,7 +42,7 @@ const ResturentBody = ({ items, setShowMoreAboutBtn, dataOfShowMoreAbout, foodCa
 
                   <div >
                     <p className='text-warning fs-3'>{element.subcategory.toUpperCase() || "Category"}</p>
-                    <hr />
+                    <hr className='text-warning' />
                   </div>
 
 
