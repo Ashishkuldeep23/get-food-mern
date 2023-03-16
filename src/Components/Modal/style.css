@@ -2,9 +2,8 @@
 
 
 .modal_inner{
-    overflow-y: scroll;
+    overflow-y: auto;
 }
-
 
 /* .cancel_div{
     position: absolute;

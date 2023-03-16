@@ -11,8 +11,12 @@ import "./style.css"
 
 const Navbar = () => {
 
+    // // // Below these state var is used in show modal(react createPortal div).
     const [viewModalCart, setViewModalCart] = useState(false)
     const [viewModalMyOrders, setViewModalMyOrders] = useState(false)
+
+    // // // Below state var is used to check user is previously logedIn or not.
+    const [isLogedIn , setIsLogedIn] = useState(localStorage.getItem("getFoodToken"))
 
     return (
         <>
@@ -29,7 +33,7 @@ const Navbar = () => {
                             {/* Cart 1st */}
 
                             {
-                                (localStorage.getItem("getFoodToken"))
+                                (isLogedIn)
                                 &&
 
                                 <button className="rounded border border-2 border-white rounded m-1  p-2 bg-success d-sm-none" style={{ marginLeft: "80vh" }}>
@@ -45,7 +49,7 @@ const Navbar = () => {
 
                         <div className="collapse navbar-collapse  " id="navbarNav">
                             {
-                                (localStorage.getItem("getFoodToken"))
+                                (isLogedIn)
 
                                 &&
                                 <div className='d-sm-flex'>
@@ -60,7 +64,7 @@ const Navbar = () => {
                             {/* Cart 2nd */}
 
                             {
-                                (localStorage.getItem("getFoodToken"))
+                                (isLogedIn)
 
                                 ?
                                 <ul className="navbar-nav ms-auto d-inline-block d-sm-flex ">
