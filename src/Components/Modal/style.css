@@ -4,3 +4,17 @@
 .modal_inner{
     overflow-y: scroll;
 }
+
+
+/* .cancel_div{
+    position: absolute;
+    bottom: 0;
+    width: 98%;
+} */
+
+.cancel_div:hover{
+
+    cursor: pointer;
+    color:#adb5bd !important ;
+
+}
