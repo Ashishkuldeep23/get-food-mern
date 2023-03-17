@@ -25,7 +25,7 @@ const OVERLAY_STYLES = {
   zIndex: 1000
 }
 
-const Modal = ({ children, onClose, title = "I'm Modal" }) => {
+const Modal = ({ children, onClose, title = "I'm Modal" , Div="modal"}) => {
 
   return ReactDom.createPortal(
     <>
@@ -45,7 +45,7 @@ const Modal = ({ children, onClose, title = "I'm Modal" }) => {
       </div>
 
     </>,
-    document.getElementById('modal')
+    document.getElementById(Div)
   )
 }
 

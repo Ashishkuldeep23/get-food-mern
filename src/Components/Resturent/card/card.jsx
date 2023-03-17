@@ -1,14 +1,38 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "../Body/style.css"
 
 
-const Card = ({data , dataOfShowMoreAbout , setShowMoreAboutBtn  }) => {
-
+const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn }) => {
     const { image, name, price, size = ["Regular", "Special"], quantitiy = [1, 2, 3, 4, 5] } = data
+
+    const qutRef = useRef()
+    const sizeRef = useRef()
+
+    const [itemQut, setItemQut] = useState(1)
+    const [itemSize, setItemSize] = useState("")
+
+    useEffect(() => {
+        setItemQut(qutRef.current.value)
+        setItemSize(sizeRef.current.value)
+    }, [])
 
 
     const orderFunc = (foodName, foodPrice) => {
         alert([foodName, foodPrice])
+    }
+
+    const totalPrice = () => {
+        let p = itemQut * price
+        if (itemSize === "Regular") {
+            p += 0
+        }
+        else if (itemSize === "Special") {
+            p += 50
+        }
+        else {
+            p += 50
+        }
+        return p
     }
 
 
@@ -38,21 +62,21 @@ const Card = ({data , dataOfShowMoreAbout , setShowMoreAboutBtn  }) => {
                     <h3 className='animate__animated animate__zoomInDown checkAk '>{name}</h3>
                     <div className='d-flex  justify-content-between mb-1'>
 
-                        <div style={ {  marginBottom : "1.5vh"} } >
+                        <div style={{ marginBottom: "1.5vh" }} >
 
-                            <select className='bg-dark text-white h-100 rounded-start'>
+                            <select className='bg-success text-white h-100 rounded-start' ref={sizeRef} value={itemSize} onChange={(e) => { setItemSize(e.target.value) }}>
                                 {
                                     size.map((item, i) => { return <option key={i} value={item}>{item}</option> })
                                 }
                             </select>
-                            <select className='bg-dark text-white h-100 rounded-end'>
+                            <select className='bg-success text-white h-100 rounded-end' ref={qutRef} value={itemQut} onChange={(e) => { setItemQut(e.target.value) }} >
                                 {
                                     quantitiy.map((item, i) => { return <option key={i} value={item}>{item}</option> })
                                 }
                             </select>
                         </div>
 
-                        <h4 className='animate__animated  animate__rubberBand'>₹ {price}/-</h4>
+                        <h4 className='animate__animated  animate__rubberBand'>₹ {totalPrice()}/-</h4>
                     </div>
                     <hr />
 

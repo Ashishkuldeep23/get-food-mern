@@ -17,14 +17,14 @@ const Skeleton = () => {
 
                     <div>
 
-                        <select className='bg-dark text-white h-100 rounded-start'>
+                        <select className='bg-success text-white h-100 rounded-start'>
                             <option value="loading">...</option>
                             <option value="loading">...</option>
                             <option value="loading">...</option>
 
                         </select>
 
-                        <select className='bg-dark text-white h-100 rounded-end'>
+                        <select className='bg-success text-white h-100 rounded-end'>
                             <option value="loading">...</option>
                             <option value="loading">...</option>
                             <option value="loading">...</option>
@@ -36,7 +36,7 @@ const Skeleton = () => {
                 </div>
                 <hr />
                 <button className='btn btn-outline-primary mx-2 card_btn_Ak' onClick={ ()=>{alert("Give some time to open actual data.")}} >About</button>
-                <button className='btn btn-outline-success ms-5 card_btn_Ak' onClick={ ()=>{alert("Give some time to open actual data.")}} >Add</button>
+                <button className='btn btn-outline-success ms-5 card_btn_Ak' onClick={ ()=>{alert("Give some time to open actual data.")}} >Cart</button>
             </div>
             {/* </div> */}
 

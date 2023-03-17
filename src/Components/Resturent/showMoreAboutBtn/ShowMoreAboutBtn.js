@@ -3,13 +3,13 @@ import React from 'react'
 import "./style.css"
 
 
-const ShowMoreAboutBtn = ({ setShowMoreAboutBtn,  showMoreAboutData }) => {
+const ShowMoreAboutBtn = ({   showMoreAboutData }) => {
 
 
 
-  const backToNormal = () => {
-    setShowMoreAboutBtn(false)
-  }
+  // const backToNormal = () => {
+  //   setShowMoreAboutBtn(false)
+  // }
 
   let dataOfClickedCard = JSON.parse(showMoreAboutData)
   // // // console.log(dataOfClickedCard)

@@ -29,10 +29,13 @@ const ResturentMain = ({ foodCat, menuList, items, findFood }) => {
 
 
   // // // Below both is used in show more data button clicked ---------->
-  const [showMoreAboutBtn, setShowMoreAboutBtn] = useState(false)
-  const [showMoreAboutData, setShowMoreAboutData] = useState("")  
+
+  // const [showMoreAboutBtn, setShowMoreAboutBtn] = useState(false)
+
+  const [showMoreAboutData, setShowMoreAboutData] = useState("")
 
 
+  const [viewModalShowMore, setViewModalShowMore] = useState(false)
 
 
   /**
@@ -129,27 +132,33 @@ const ResturentMain = ({ foodCat, menuList, items, findFood }) => {
       {/* Expperiment duing here ---------------> */}
 
       {
-        !showMoreAboutBtn && <ResturentMenu findFood={findFood} menuList={menuList} />
+        <ResturentMenu findFood={findFood} menuList={menuList} />
       }
 
       {
-        !showMoreAboutBtn
-          ?
-          <ResturentBody
-            items={items}
-            setShowMoreAboutBtn={setShowMoreAboutBtn}
-            dataOfShowMoreAbout={dataOfShowMoreAbout}
-            foodCat={foodCat}
+
+        <ResturentBody
+          items={items}
+          setShowMoreAboutBtn={setViewModalShowMore}
+          dataOfShowMoreAbout={dataOfShowMoreAbout}
+          foodCat={foodCat}
+        />
+
+      }
+
+
+
+      {/* Now show more used as portal div --->  */}
+
+      {
+        viewModalShowMore
+        &&
+        <Modal onClose={() => { setViewModalShowMore(false) }} title="About Food" Div="showMore">
+
+          <ShowMoreAboutBtn
+            showMoreAboutData={showMoreAboutData}
           />
-          :
-
-          <Modal onClose={()=>{setShowMoreAboutBtn(false)}} title="About Food">
-
-            <ShowMoreAboutBtn
-              setShowMoreAboutBtn={setShowMoreAboutBtn}
-              showMoreAboutData={showMoreAboutData}
-            />
-          </Modal>
+        </Modal>
       }
 
 
