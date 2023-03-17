@@ -3,7 +3,7 @@ import "../Body/style.css"
 
 
 const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn }) => {
-    const { image, name, price, size = ["Regular", "Special"], quantitiy = [1, 2, 3, 4, 5] } = data
+    const { image, name, price, size = {"Regular" : price , "Special" : price + 10 }, quantitiy = [1, 2, 3, 4, 5] } = data
 
     const qutRef = useRef()
     const sizeRef = useRef()
@@ -22,16 +22,19 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn }) => {
     }
 
     const totalPrice = () => {
-        let p = itemQut * price
-        if (itemSize === "Regular") {
-            p += 0
-        }
-        else if (itemSize === "Special") {
-            p += 50
-        }
-        else {
-            p += 50
-        }
+        let p = itemQut * (size[itemSize])
+
+        // // // Priviously i'm using that ------->
+        // if (itemSize === "Regular") {
+        //     p += 0
+        // }
+        // else if (itemSize === "Special") {
+        //     p += 50
+        // }
+        // else {
+        //     p += 50
+        // }
+
         return p
     }
 
@@ -66,7 +69,7 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn }) => {
 
                             <select className='bg-success text-white h-100 rounded-start' ref={sizeRef} value={itemSize} onChange={(e) => { setItemSize(e.target.value) }}>
                                 {
-                                    size.map((item, i) => { return <option key={i} value={item}>{item}</option> })
+                                   Object.keys(size).map((item, i) => { return <option key={i} value={item}>{item}</option> })
                                 }
                             </select>
                             <select className='bg-success text-white h-100 rounded-end' ref={qutRef} value={itemQut} onChange={(e) => { setItemQut(e.target.value) }} >
