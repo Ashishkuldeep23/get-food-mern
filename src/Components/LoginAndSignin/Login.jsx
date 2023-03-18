@@ -24,6 +24,10 @@ const Login = () => {
   async function onClickHandler(e){
     e.preventDefault()
 
+    if(!logInData.email || !logInData.password){
+      return alert("All feild should given")
+    }
+
     const option = {
       method: 'POST',
       headers: {

@@ -26,8 +26,11 @@ const Signin = () => {
 
 
   async function  clickHandler(event){
-
     event.preventDefault()
+
+    if(!formData.email || !formData.password || !formData.name  || !formData.address){
+      return alert("All feild should given")
+    }
 
 
     const option = {

@@ -46,8 +46,17 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn, index }) => {
 
     const addToCartHandler = async () => {
 
-        let foodData = {}
 
+        // // // Login require code -------->
+
+        let token = localStorage.getItem("getFoodToken")
+
+        if(! token){
+            return alert(`Please Login first before cart :- ${name}` )
+        }
+
+
+        let foodData = {}
 
         for (let item of cartArr) {
             if ((item.id === _id) && (item.size === itemSize) ){
