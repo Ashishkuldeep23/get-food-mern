@@ -10,16 +10,18 @@ import Signin from "./Components/LoginAndSignin/Signin";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 
+import { CartProvider } from "./Components/ContextReducer"
+
 
 
 // // // Main UI function -------------->
 function App() {
 
 
-  const [allDataOfApi, setAllDataOfApi] = useState([[], []])
+  const [allDataOfApi, setAllDataOfApi] = useState([ [] , [] ])
 
   const [items, setItems] = useState(allDataOfApi[0])
- 
+
   const [menuList, setmenuList] = useState([])
 
   const [foodCat, setFoodCat] = useState(allDataOfApi[1])
@@ -85,23 +87,25 @@ function App() {
 
   return (
     <div>
-    
-      <Routes>
-        <Route path="/" element={
-          <div>
-            <Navbar />
-            <ResturentMain
-              allDataOfApi={allDataOfApi}
-              items={items}
-              menuList={menuList}
-              foodCat={foodCat}
-              findFood={findFood} />
-          </div>  }
-        />
-        <Route path="/logIn" element={<Login />} />
-        <Route path="/signIn" element={<Signin />} />
-        <Route path="*" element={ <Navigate to="/" /> } />
-      </Routes>
+      <CartProvider>
+        <Routes>
+          <Route path="/" element={
+            <div>
+              <Navbar />
+              <ResturentMain
+                allDataOfApi={allDataOfApi}
+                items={items}
+                menuList={menuList}
+                foodCat={foodCat}
+                findFood={findFood} />
+            </div>}
+          />
+          <Route path="/logIn" element={<Login />} />
+          <Route path="/signIn" element={<Signin />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+
+      </CartProvider>
     </div>
   );
 }

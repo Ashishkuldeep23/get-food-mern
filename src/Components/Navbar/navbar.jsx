@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
+import "./style.css"
 
 
 import Modal from '../Modal/Modal';
 
 import Cart from "../Cart/Cart"
 
-
-import "./style.css"
+import { useCart } from "../ContextReducer"
 
 const Navbar = () => {
 
@@ -18,7 +18,7 @@ const Navbar = () => {
     // // // Below state var is used to check user is previously logedIn or not.
     const [isLogedIn , setIsLogedIn] = useState(localStorage.getItem("getFoodToken"))
 
-    const [cartValue , setCartValue] = useState(2)
+    const cartData = useCart()
 
     return (
         <>
@@ -31,15 +31,15 @@ const Navbar = () => {
                         {/* <a className="nav-link active  text-white border border-white rounded p-2 ms-1 ms-sm-5" href="#">My Orders</a> */}
 
                         <div className='ms-auto'>
-                            {/* Now i'm using two cart btn , one on rigth in sm and above and one on left of menu btn in below of sm  */}
+                            {/* Now i'm using two cart btn , one on rigth of logout in sm and above (with logout btn) and one on left of menu btn in below of sm  */}
                             {/* Cart 1st */}
 
                             {
                                 (isLogedIn)
                                 &&
 
-                                <button className="rounded border border-2 border-white rounded m-1  p-2 bg-success d-sm-none" style={{ marginLeft: "80vh" }}>
-                                    <Link className="nav-link active fw-bold text-white" to={"/"} onClick={() => { setViewModalCart(true) }}><i className="fa-solid fa-cart-shopping"></i> <span className="badge rounded-pill bg-danger">{cartValue}</span> </Link>
+                                <button className="rounded border border-2 border-white rounded m-1  p-2 bg-success d-sm-none" >
+                                    <Link className="nav-link active fw-bold text-white" to={"/"} onClick={() => { setViewModalCart(true) }}><i className="fa-solid fa-cart-shopping"></i> <span className="badge rounded-pill bg-danger">{cartData.length}</span> </Link>
                                 </button>
                             }
 
@@ -71,7 +71,7 @@ const Navbar = () => {
                                 ?
                                 <ul className="navbar-nav ms-auto d-inline-block d-sm-flex ">
                                     <li className="nav-item  border border-2 border-white rounded m-1 px-1 d-none d-sm-block">
-                                        <Link className="nav-link active fw-bold" to={"/"} onClick={() => { setViewModalCart(true) }}><i className="fa-solid fa-cart-shopping"></i> <span className="badge rounded-pill bg-danger">{cartValue}</span> </Link>
+                                        <Link className="nav-link active fw-bold" to={"/"} onClick={() => { setViewModalCart(true) }}><i className="fa-solid fa-cart-shopping"></i> <span className="badge rounded-pill bg-danger">{cartData.length}</span> </Link>
                                     </li>
                                     <li className="nav-item rounded bg-white m-1  px-1" onClick={() => { localStorage.removeItem("getFoodToken"); alert("LogOut Successful"); }}>
                                         <Link className="nav-link active text-danger fw-bold" to={"/"}>LogOut</Link>

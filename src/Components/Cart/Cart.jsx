@@ -1,17 +1,142 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+import { useCart } from '../ContextReducer'
+
 
 const Card = () => {
+
+  const [totalPrice, setTotalPrice] = useState(0)
+
+
+  const cartData = useCart()
+  // console.log(cartData)
+
+
+  useEffect(() => {
+
+    let p = 0
+    cartData.map((item, i) => {
+      p += item.totalPrice
+    })
+
+    setTotalPrice(p)
+
+  }, [])
+
+
+
+
+
+  function handleCheckOut() {
+
+  }
+
+
+
+
   return (
+
     <>
 
-      <div className='min-w-100 min-h-100 b-danger'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus maiores, aliquid mollitia qui at, aliquam id ut officiis sequi neque, necessitatibus cupiditate nostrum minus provident architecto? Voluptatem in natus ex illum? Voluptas excepturi sit, sint voluptatibus eligendi assumenda perferendis incidunt! Commodi aliquid dolorem error. Ipsa earum iusto ipsum repellendus cumque molestiae dolorem mollitia quas magni laboriosam error, expedita quod! Cum voluptatum velit quibusdam sit illum hic voluptatibus ab perspiciatis. Rem minus ab mollitia aliquam eum. Quisquam aut reiciendis optio. Eveniet, corporis pariatur incidunt, aliquam consequuntur veritatis rerum id sit inventore ut illum praesentium aperiam iste dicta necessitatibus sunt molestias. Enim deserunt, temporibus veniam eius hic libero nesciunt unde, vero mollitia voluptatibus minima corrupti iure, cum animi saepe ipsa. Veritatis, ad qui. Sunt at facere ducimus debitis repudiandae reprehenderit veniam, fugit distinctio! Dicta delectus blanditiis ipsam quo, iusto explicabo saepe laborum nesciunt officia, id sit beatae eum ea, magni earum placeat. Voluptatum optio, eligendi iste molestias itaque nam impedit quod voluptas totam, consequatur ducimus et inventore laboriosam rerum tempore veritatis eaque! Harum quaerat, ad iure rem commodi exercitationem architecto suscipit numquam illo nam sed necessitatibus, iusto voluptatum explicabo earum expedita eligendi minus voluptatem assumenda fugiat ex excepturi animi. Totam, recusandae accusantium?
+      <div className='container'>
+
+        {/* This is used as heading  */}
+        <div className='row'>
+
+          <div className="col-1 d-none d-sm-block text-success fs-3 fw-bold">#</div>
+          <div className="col text-success fs-3 fw-bold">Cart Item</div>
+          <div className="col-4 text-success fs-3 fw-bold">Amount</div>
+          <hr className="text-warning" />
+
+        </div>
 
 
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non vitae asperiores ratione, aliquam, officiis suscipit sunt libero quia ipsum magnam quas. Vero unde nesciunt reiciendis consequatur consequuntur. Incidunt doloremque molestiae asperiores quia veniam quam libero nemo ea labore, distinctio dignissimos provident facilis ducimus, ullam aliquam praesentium quibusdam amet? Pariatur optio tempora repellat eius blanditiis, est vitae cupiditate veritatis facere ducimus? Dolorem adipisci, laborum ab quae quis ea neque nobis voluptatum illum minus, rerum amet molestias esse nostrum vel, similique tempore repudiandae eveniet? Dolore officia quo enim nesciunt culpa architecto ea itaque, numquam praesentium, eius doloremque minima perferendis fuga cupiditate corrupti amet dolores aperiam ipsam? Voluptatem illum laboriosam facilis, sunt dignissimos nostrum quod? Veritatis, quos earum? Sapiente tempora aspernatur cupiditate veniam quas reiciendis dolorem temporibus! Deserunt ab dolorum eligendi sapiente. Repellat ipsa cum, nulla similique laborum totam officiis explicabo atque accusamus, incidunt rerum. Harum molestias, recusandae officia hic eos vitae inventore, consequuntur nam omnis placeat eum nisi dolorum sed. Vel, nulla recusandae quas possimus, sequi necessitatibus illo nemo voluptate quia ut cupiditate dolor dolores eos maxime ex voluptatum praesentium voluptatem quae? Ratione nulla recusandae minus quod enim esse dolorum voluptas neque totam, molestias eum eligendi vero eos consectetur saepe repudiandae? Unde modi alias neque incidunt maiores, ex doloremque, dolores dignissimos doloribus fugit omnis voluptas soluta sint. Ea eum sequi facere non beatae nulla illo, quia sit, repudiandae in neque. Eos, enim tenetur laborum fugit harum quis quas dolorem quaerat dolores ipsum iste eum est voluptatibus deleniti odit sequi modi cumque, nam non asperiores maxime eius, temporibus vel vero. Magnam vero sint esse blanditiis tempore magni neque iste beatae reprehenderit, quae velit delectus. Mollitia minima, rerum aperiam quae aliquam ratione accusamus! Minus facilis expedita velit reiciendis quibusdam qui pariatur possimus delectus earum in officiis harum maiores, natus quasi. Expedita minus ducimus sed, quis nulla quos eius, enim fuga pariatur eligendi magnam recusandae, reiciendis aspernatur veniam quisquam nobis tenetur! Veritatis commodi placeat voluptatum sed consectetur odit sit sequi quod repellat nihil minima ipsa ducimus architecto rem sint ipsum maiores, recusandae nisi omnis. Minima ex nulla quia fugit eius facere qui eveniet ipsa amet sed nisi aperiam quam iure, illo reiciendis saepe! Iste unde eveniet, dignissimos quas veritatis consequuntur animi dicta nam doloribus voluptatibus? Non sed ut repudiandae dolores! Impedit quos nisi illum commodi a corrupti, distinctio repudiandae rerum! Exercitationem, aspernatur deserunt, animi, necessitatibus accusamus porro aliquid ratione libero voluptate explicabo quod architecto fuga? Quis iure, provident, ab assumenda nisi minus asperiores rem dolorem vero qui harum delectus eligendi perspiciatis nostrum totam error dignissimos aliquam dolore vitae. Debitis officiis vel est, obcaecati modi vero a temporibus in nobis quos laboriosam, aperiam iure. Quo ex quam, iusto totam voluptatem enim doloremque adipisci. Nisi eligendi eveniet doloribus tempora adipisci. Porro rerum, quos explicabo a, perspiciatis dicta placeat ducimus veritatis ipsam vero laudantium quod, molestiae dolore dolorum illum provident hic eaque id ipsum dolor maiores nam earum aliquam ea. Vero quisquam nobis officia eius, tenetur nihil accusantium ipsum aliquam sequi? At facilis quasi quisquam dicta alias sit?
+        {
+          (cartData.length !== 0)
+            ?
+            cartData.map((data, i) => {
+              return (
+
+                <div key={i} className='row' >
+
+                  <div className="col-1 d-none d-sm-block text-info fw-bold">{i + 1}.</div>
+                  <div className="col ">
+                    <div className='mx-1'>
+                      <p className='d-sm-none text-info fw-bold'>{i + 1}.</p>
+                      <p className='fs-4 fw-bold'>{data.name} <span className='fs-6 text-info' >({data.size})</span></p>
+                      <p className='fs-5'>{data.qut} <span className='text-info'>*</span> ₹ {data.singlePrice}/-</p>
+                    </div>
+                    <div>
+                      <img className='foodImage mb-3' src={data.image} alt={data.name} style={{ maxWidth: "40vh", maxHeight: "40vh", width: "70%", height: "70%" }} />
+                    </div>
+                  </div>
+                  <div className="col-4 mt-auto mb-5">
+                    <h5>₹ {data.totalPrice}/-</h5>
+                    <button className='btn btn-outline-danger fw-bold'>Remove</button>
+                  </div>
+
+                  <hr className="text-warning" />
+                </div>
+              )
+            })
+
+            :
+
+            <div>
+
+              <h1>Your cart is empty😔</h1>
+              <h2>Order something please...</h2>
+            </div>
+        }
+
+
+        {/* Below div will go in loop or no item msg
+        <div className='row'>
+
+          <div className="col-1 d-none d-sm-block text-warning">1.</div>
+          <div className="col ">
+            <div className='mx-1'>
+              <p className='d-sm-none text-warning'>1.</p>
+              <p className='fs-4 fw-bold'>NonVeg Thali</p>
+              <p className='fs-5'>2 <span className='text-info'>x</span> ₹ 220/-</p>
+            </div>
+            <div>
+              <img className='foodImage mb-1' src="https://thumbs.dreamstime.com/z/indian-non-veg-thali-food-platter-consists-variety-veggies-chicken-meat-lentils-sweet-dish-snacks-etc-selective-focus-225928502.jpg" alt={name || "food"} style={{ width: "70%", height: "70%" }} />
+            </div>
+          </div>
+          <div className="col-4 mt-auto mb-5">
+            <h5>₹ 440/-</h5>
+            <button className='btn btn-outline-danger fw-bold'>Remove</button>
+          </div>
+
+          <hr className="text-warning" />
+        </div> */}
+
+
+        {/* Below div will depend upon items in cart */}
+        {
+          (cartData.length !== 0)
+          &&
+
+          <div>
+
+            <div className='d-flex'><h1 className='fs-2 ms-auto'>Total Price: {totalPrice}/-</h1></div>
+            <div className='d-flex'>
+              <button className='btn bg-success mt-5 fw-bold text-white ms-auto ' onClick={handleCheckOut} > Check Out </button>
+            </div>
+            <p>Please press Check Out and see all order in my order section.</p> 
+              <h2>Thank you for using...</h2> 
+          </div>
+
+        }
+
+
+
       </div>
 
+
     </>
+
   )
 }
 

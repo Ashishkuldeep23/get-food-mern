@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "../Body/style.css"
 
+import { useCart , useDispatchCart } from '../../ContextReducer'
 
-const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn }) => {
-    const { image, name, price, size = {"Regular" : price , "Special" : price + 10 }, quantitiy = [1, 2, 3, 4, 5] } = data
+
+const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn , index }) => {
+    const { _id, image, name, price, size = {"Regular" : price , "Special" : price + 10 }, quantitiy = [1, 2, 3, 4, 5] } = data
 
     const qutRef = useRef()
     const sizeRef = useRef()
@@ -16,10 +18,6 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn }) => {
         setItemSize(sizeRef.current.value)
     }, [])
 
-
-    const orderFunc = (foodName, foodPrice) => {
-        alert([foodName, foodPrice])
-    }
 
     const totalPrice = () => {
         let p = itemQut * (size[itemSize])
@@ -40,18 +38,18 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn }) => {
 
 
 
+    const dispatch = useDispatchCart()
+
+    // const cartArr = useCart()
+
+    const addToCartHandler = async () => {
+        await dispatch({type : "ADD" , id : _id ?? index , name : name , image : image , qut : itemQut , singlePrice : size[itemSize] , totalPrice : totalPrice() , size : itemSize })
+    }
+
+
     const about_more_func = (clickedEle) => {
-        // console.log(clickedEle)
-
-        // // // Not working (bad way for do about more ----> (below))
-        // const {name , category , description , image , price} = clickedEle
-        // document.getElementById("mainHolderOfAll").innerHTML = `<div><h1>Name : ${name}</h1> <div><span>${category}</span> <span>${price}</span></div> <img src="${image}" alt="" /> <p>${description}</p></div>`
-
-        // alert(clickedEle.id+"."+clickedEle.name)
-
         dataOfShowMoreAbout(clickedEle)
         setShowMoreAboutBtn(true)
-
     }
 
 
@@ -85,7 +83,7 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn }) => {
 
                     <div className='d-flex justify-content-between'>
                         <button className='btn btn-outline-primary card_btn_Ak' onClick={() => { about_more_func(data) }}>About</button>
-                        <button className='btn btn-outline-success card_btn_Ak' onClick={() => { orderFunc(name, price) }}>Add Cart</button>
+                        <button className='btn btn-outline-success card_btn_Ak' onClick={() => { addToCartHandler(data) }}>Add Cart</button>
                     </div>
                 </div>
 

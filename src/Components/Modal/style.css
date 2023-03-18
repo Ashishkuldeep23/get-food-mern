@@ -5,11 +5,11 @@
     overflow-y: auto;
 }
 
-/* .cancel_div{
-    position: absolute;
-    bottom: 0;
-    width: 98%;
-} */
+.cancel_div{
+    
+    margin-top: 100%;
+
+}
 
 .cancel_div:hover{
 

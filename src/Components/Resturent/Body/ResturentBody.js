@@ -57,7 +57,7 @@ const ResturentBody = ({ items, setShowMoreAboutBtn, dataOfShowMoreAbout, foodCa
                         }
                       }).map((curEle, i) => {
                         return (
-                          <Card data={curEle} key={i} dataOfShowMoreAbout={dataOfShowMoreAbout} setShowMoreAboutBtn={setShowMoreAboutBtn} />
+                          <Card data={curEle} index={i} key={i} dataOfShowMoreAbout={dataOfShowMoreAbout} setShowMoreAboutBtn={setShowMoreAboutBtn} />
                         )
                       })
 
