@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "../Body/style.css"
 
-import { useCart , useDispatchCart } from '../../ContextReducer'
+import { useCart, useDispatchCart } from '../../ContextReducer'
 
 
-const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn , index }) => {
-    const { _id, image, name, price, size = {"Regular" : price , "Special" : price + 10 }, quantitiy = [1, 2, 3, 4, 5] } = data
+const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn, index }) => {
+    const { _id, image, name, price, size = { "Regular": price, "Special": price + 10 }, quantitiy = [1, 2, 3, 4, 5] } = data
 
     const qutRef = useRef()
     const sizeRef = useRef()
@@ -13,10 +13,12 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn , index }) => {
     const [itemQut, setItemQut] = useState(1)
     const [itemSize, setItemSize] = useState("")
 
+
     useEffect(() => {
         setItemQut(qutRef.current.value)
         setItemSize(sizeRef.current.value)
     }, [])
+
 
 
     const totalPrice = () => {
@@ -40,10 +42,39 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn , index }) => {
 
     const dispatch = useDispatchCart()
 
-    // const cartArr = useCart()
+    const cartArr = useCart()
 
     const addToCartHandler = async () => {
-        await dispatch({type : "ADD" , id : _id ?? index , name : name , image : image , qut : itemQut , singlePrice : size[itemSize] , totalPrice : totalPrice() , size : itemSize })
+
+        let foodData = {}
+
+
+        for (let item of cartArr) {
+            if ((item.id === _id) && (item.size === itemSize) ){
+                foodData = {...item , size : itemSize , qut : itemQut , totalPrice : totalPrice() }
+                break
+            }
+        }
+
+
+        if (Object.keys(foodData).length === 0) {
+            await dispatch({ type: "ADD", id: _id , name: name, image: image, qut: itemQut, singlePrice: size[itemSize], totalPrice: totalPrice(), size: itemSize })
+        }
+
+        else {
+            if ( foodData.size === itemSize ) {
+                await dispatch({ type: "UPDATE", id: _id , totalPrice:totalPrice(), qut:itemQut , size:itemSize })
+                return
+            }else{
+                await dispatch({ type: "ADD", id: _id ?? index, name: name, image: image, qut: itemQut, singlePrice: size[itemSize], totalPrice: totalPrice(), size: itemSize })
+                console.log("Size different so simply ADD one more to the list")
+            }
+        }
+
+
+        // await dispatch({ type: "ADD", id: _id ?? index, name: name, image: image, qut: itemQut, singlePrice: size[itemSize], totalPrice: totalPrice(), size: itemSize })
+
+
     }
 
 
@@ -67,7 +98,7 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn , index }) => {
 
                             <select className='bg-success text-white h-100 rounded-start' ref={sizeRef} value={itemSize} onChange={(e) => { setItemSize(e.target.value) }}>
                                 {
-                                   Object.keys(size).map((item, i) => { return <option key={i} value={item}>{item}</option> })
+                                    Object.keys(size).map((item, i) => { return <option key={i} value={item}>{item}</option> })
                                 }
                             </select>
                             <select className='bg-success text-white h-100 rounded-end' ref={qutRef} value={itemQut} onChange={(e) => { setItemQut(e.target.value) }} >

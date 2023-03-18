@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { useCart } from '../ContextReducer'
+import { useCart, useDispatchCart } from '../ContextReducer'
 
 
 const Card = () => {
@@ -21,16 +21,34 @@ const Card = () => {
 
     setTotalPrice(p)
 
-  }, [])
+  }, [cartData])
 
 
 
 
 
-  function handleCheckOut() {
+
+  const dispatch = useDispatchCart()
+
+  // // // One delete ----->
+  async function singleDelete(data){
+
+    await dispatch({type : "ONE_DELETE" , data : data})
+
+    // console.log(data)
 
   }
 
+
+  // // // all delete ----->
+  async function handleCheckOut() {
+
+    await dispatch({type : "ALL_DELETE"})
+
+
+    // // // Logic for add in db --->
+
+  }
 
 
 
@@ -72,7 +90,7 @@ const Card = () => {
                   </div>
                   <div className="col-4 mt-auto mb-5">
                     <h5>₹ {data.totalPrice}/-</h5>
-                    <button className='btn btn-outline-danger fw-bold'>Remove</button>
+                    <button className='btn btn-outline-danger fw-bold' onClick={()=>{singleDelete(data)}}>Remove</button>
                   </div>
 
                   <hr className="text-warning" />
@@ -111,6 +129,8 @@ const Card = () => {
 
           <hr className="text-warning" />
         </div> */}
+
+
 
 
         {/* Below div will depend upon items in cart */}
