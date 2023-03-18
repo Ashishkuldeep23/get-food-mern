@@ -59,7 +59,10 @@ const reducer = (state, action) => {
 
 const CartProvider = ({ children }) => {
 
-    const [state, dispatch] = useReducer(reducer, [])
+    let cartArr = localStorage.getItem("cartItems")
+    cartArr = JSON.parse(cartArr)
+
+    const [state, dispatch] = useReducer(reducer , [...cartArr || []])
 
 
     return (

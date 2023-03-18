@@ -40,9 +40,10 @@ const Card = () => {
   }
 
 
-  // // // all delete ----->
+  // // // all delete handler ----->
   async function handleCheckOut() {
 
+    // // Dispatch call ---->
     await dispatch({type : "ALL_DELETE"})
 
 
@@ -77,12 +78,12 @@ const Card = () => {
 
                 <div key={i} className='row' >
 
-                  <div className="col-1 d-none d-sm-block text-info fw-bold">{i + 1}.</div>
+                  <div className="col-1 d-none d-sm-block text-info fw-bold">SR. {i + 1}</div>
                   <div className="col ">
                     <div className='mx-1'>
-                      <p className='d-sm-none text-info fw-bold'>{i + 1}.</p>
+                      <p className='d-sm-none text-info fw-bold'>SR. {i + 1}</p>
                       <p className='fs-4 fw-bold'>{data.name} <span className='fs-6 text-info' >({data.size})</span></p>
-                      <p className='fs-5'>{data.qut} <span className='text-info'>*</span> ₹ {data.singlePrice}/-</p>
+                      <p className='fs-5'> <span className='text-warning fw-bold'>{data.qut}</span> <span className='text-info'>*</span> ₹ {data.singlePrice}/-</p>
                     </div>
                     <div>
                       <img className='foodImage mb-3' src={data.image} alt={data.name} style={{ maxWidth: "40vh", maxHeight: "40vh", width: "70%", height: "70%" }} />
@@ -90,7 +91,7 @@ const Card = () => {
                   </div>
                   <div className="col-4 mt-auto mb-5">
                     <h5>₹ {data.totalPrice}/-</h5>
-                    <button className='btn btn-outline-danger fw-bold' onClick={()=>{singleDelete(data)}}>Remove</button>
+                    <button className='btn btn-outline-danger fw-bold' onClick={()=>{singleDelete(data)}}><i className="fa-solid fa-trash-can"></i></button>
                   </div>
 
                   <hr className="text-warning" />

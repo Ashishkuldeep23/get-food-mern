@@ -46,16 +46,15 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn, index }) => {
 
     const addToCartHandler = async () => {
 
-
         // // // Login require code -------->
 
         let token = localStorage.getItem("getFoodToken")
 
         if(! token){
-            return alert(`Please Login first before cart :- ${name}` )
+            return alert(`Please Login first before add to cart :- ${name}` )
         }
 
-
+        // // // Below object is used to maintain value of update food item
         let foodData = {}
 
         for (let item of cartArr) {
@@ -73,20 +72,27 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn, index }) => {
         else {
             if ( foodData.size === itemSize ) {
                 await dispatch({ type: "UPDATE", id: _id , totalPrice:totalPrice(), qut:itemQut , size:itemSize })
-                return
             }else{
                 await dispatch({ type: "ADD", id: _id ?? index, name: name, image: image, qut: itemQut, singlePrice: size[itemSize], totalPrice: totalPrice(), size: itemSize })
                 console.log("Size different so simply ADD one more to the list")
             }
         }
-
-
-        // await dispatch({ type: "ADD", id: _id ?? index, name: name, image: image, qut: itemQut, singlePrice: size[itemSize], totalPrice: totalPrice(), size: itemSize })
+        
 
 
     }
 
 
+
+    // // // Addin data in local storage with cartArr dependancy , so below func run first and every time with var changes ----> 
+    useEffect( ()=>{
+        localStorage.setItem("cartItems" , JSON.stringify(cartArr))
+    } , [cartArr] )
+
+
+    
+
+    // // // Below is for show about btn ---->
     const about_more_func = (clickedEle) => {
         dataOfShowMoreAbout(clickedEle)
         setShowMoreAboutBtn(true)
