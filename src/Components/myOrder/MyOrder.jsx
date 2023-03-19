@@ -34,9 +34,9 @@ const MyOrder = ({ myOrderData }) => {
                                             <h1 className='text-center text-info'>
                                                 {item[0].date}
                                                 <span className='text-center text-warning fs-4 mx-2'>[₹ {item[2].totalPrice || "Not Given"}/]</span>
-                                            </h1>
-                                            
-                                            <div className='row'>
+                                                <hr />
+                                            </h1>                                            
+                                            <div className='row mx-auto justify-content-center'>
                                                 {
 
                                                     item[1].map((ele, i) => {
