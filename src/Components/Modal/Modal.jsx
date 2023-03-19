@@ -39,7 +39,7 @@ const Modal = ({ children, onClose, title = "I'm Modal" , Div="modal"}) => {
           </div>
           {/* Here all content present of child prop */}
           {children}
-          <div className='bg-danger rounded text-center fw-bold text-black py-1 my-2 cancel_div ' onClick={onClose}>Cancel this Section</div>
+          <div className='bg-danger rounded text-center fw-bold text-black py-1 my-2 cancel_div ' onClick={onClose}>Close this Section</div>
         </div>
 
       </div>

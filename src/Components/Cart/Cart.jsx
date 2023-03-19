@@ -49,6 +49,35 @@ const Card = () => {
 
     // // // Logic for add in db --->
 
+    let date = new Date()
+
+    let body = {}
+    let token = JSON.parse(localStorage.getItem("getFoodToken"))
+    body.token = token
+    body.food = [ {date : `${date.toDateString()} (${date.getHours()}:${date.getMinutes()}:${date.getSeconds()})`} , [...cartData] , {totalPrice : totalPrice} ]
+    
+
+    const option = {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    }
+
+    let logInUser = await fetch(`${process.env.REACT_APP_BACKEND}/newOrder` , option)
+    let data = await logInUser.json()
+
+
+    if(data.status === false){
+      return alert(data.message)
+    }
+
+    
+    if(data.status === true){
+      return alert( `${data.message} You can see your previous order in My Order Section.`)
+    }
+
   }
 
 

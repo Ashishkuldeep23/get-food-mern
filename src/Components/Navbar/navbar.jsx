@@ -6,6 +6,7 @@ import "./style.css"
 import Modal from '../Modal/Modal';
 
 import Cart from "../Cart/Cart"
+import MyOrder from '../myOrder/MyOrder';
 
 import { useCart } from "../ContextReducer"
 
@@ -19,6 +20,45 @@ const Navbar = () => {
     const [isLogedIn, setIsLogedIn] = useState(localStorage.getItem("getFoodToken"))
 
     const cartData = useCart()
+
+
+    
+
+    // // // My previous order code ------------>
+    const [myOrderData , setMyOrderData] = useState([])
+
+    async function myOrderHandler (){
+
+        let body = {
+            token : JSON.parse(localStorage.getItem("getFoodToken"))
+        }
+    
+        const option = {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        }
+    
+        let logInUser = await fetch(`${process.env.REACT_APP_BACKEND}/getOrder` , option)
+        let inJson = await logInUser.json()
+    
+    
+        if(inJson.status === false){
+          return alert(inJson.message)
+        }
+    
+        
+        if(inJson.status === true){
+            console.log(myOrderData)
+            setMyOrderData(inJson.data.food)
+          return 
+        }
+    
+
+    }
+
 
     return (
         <>
@@ -57,7 +97,7 @@ const Navbar = () => {
                                 &&
                                 <div className='d-sm-flex'>
 
-                                    <a className="nav-link active text-white p-2 m-1 border border-2 border-white rounded fw-bold d-inline" onClick={() => { setViewModalMyOrders(true) }}>My Orders</a>
+                                    <a className="nav-link active text-white p-2 m-1 border border-2 border-white rounded fw-bold d-inline" onClick={() => { setViewModalMyOrders(true); myOrderHandler(); }}>My Orders</a>
                                     <a className="nav-link active text-white p-2 m-1 fw-bold ">
                                         Welcome,{JSON.parse(localStorage.getItem("getFoodUserName")) || "Please LogOut and LogIn Again"}
                                     </a>
@@ -106,7 +146,7 @@ const Navbar = () => {
                 {viewModalCart && <Modal onClose={() => { setViewModalCart(false) }} title="My Cart Items"> <Cart /> </Modal>}
 
                 {/* Below is used in show My orders */}
-                {viewModalMyOrders && <Modal onClose={() => { setViewModalMyOrders(false) }} title="My Orders"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nobis repellendus animi quae vel a ea non repellat tempora perspiciatis vero aliquam quas quaerat itaque perferendis dignissimos, doloremque reiciendis fugiat!  </Modal>}
+                {viewModalMyOrders && <Modal onClose={() => { setViewModalMyOrders(false) }} title="My Orders"> <MyOrder  myOrderData={myOrderData}/> </Modal>}
 
             </div>
 
