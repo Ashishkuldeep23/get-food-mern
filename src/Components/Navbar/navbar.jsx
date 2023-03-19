@@ -10,7 +10,12 @@ import MyOrder from '../myOrder/MyOrder';
 
 import { useCart } from "../ContextReducer"
 
-const Navbar = () => {
+
+
+
+
+// // // UI function ------------>
+const Navbar = ({ items }) => {
 
     // // // Below these state var is used in show modal(react createPortal div).
     const [viewModalCart, setViewModalCart] = useState(false)
@@ -22,41 +27,43 @@ const Navbar = () => {
     const cartData = useCart()
 
 
-    
+
 
     // // // My previous order code ------------>
-    const [myOrderData , setMyOrderData] = useState([])
+    const [myOrderData, setMyOrderData] = useState([])
 
-    async function myOrderHandler (){
+    async function myOrderHandler() {
 
         let body = {
-            token : JSON.parse(localStorage.getItem("getFoodToken"))
+            token: JSON.parse(localStorage.getItem("getFoodToken"))
         }
-    
+
         const option = {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(body)
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
         }
-    
-        let logInUser = await fetch(`${process.env.REACT_APP_BACKEND}/getOrder` , option)
+
+        let logInUser = await fetch(`${process.env.REACT_APP_BACKEND}/getOrder`, option)
         let inJson = await logInUser.json()
-    
-    
-        if(inJson.status === false){
-          return alert(inJson.message)
+
+
+        if (inJson.status === false) {
+            return alert(inJson.message)
         }
-    
-        
-        if(inJson.status === true){
+
+
+        if (inJson.status === true) {
             setMyOrderData(inJson.data.food)
-          return 
+            return
         }
-    
+
 
     }
+
+
 
 
     return (
@@ -74,7 +81,7 @@ const Navbar = () => {
                             {/* Cart 1st ++++++++++++++++++++++++ */}
 
                             {
-                                (isLogedIn)
+                                (isLogedIn && (items.length !== 0))
                                 &&
                                 <button className="rounded border border-2 border-info rounded m-1  p-2 bg-success d-sm-none" >
                                     <Link className="nav-link active fw-bold text-info" to={"/"} onClick={() => { setViewModalCart(true) }}>
@@ -105,19 +112,26 @@ const Navbar = () => {
 
 
 
-                            {/* Cart 2nd +++++++++++++++++++++++++++ */}
 
                             {
                                 (isLogedIn)
 
                                     ?
                                     <ul className="navbar-nav ms-auto d-inline-block d-sm-flex ">
-                                        <li className="nav-item  border border-2 border-info rounded m-1 px-1 d-none d-sm-block">
-                                            <Link className="nav-link active text-info fw-bold" to={"/"} onClick={() => { setViewModalCart(true) }}>
-                                                <i className="fa-solid fa-cart-shopping"></i>
-                                                {(cartData.length !== 0) && <span className="badge rounded-pill bg-danger" style={{ position: "relative", top: "-15px", left: "15px", marginLeft: "-15px" }}>{cartData.length}</span>}
-                                            </Link>
-                                        </li>
+
+                                        {/* Cart 2nd +++++++++++++++++++++++++++ */ }
+                                        {
+                                            (items.length !== 0)
+                                            &&
+                                            <li className="nav-item  border border-2 border-info rounded m-1 px-1 d-none d-sm-block">
+
+                                                <Link className="nav-link active text-info fw-bold" to={"/"} onClick={() => { setViewModalCart(true) }}>
+                                                    <i className="fa-solid fa-cart-shopping"></i>
+                                                    {(cartData.length !== 0) && <span className="badge rounded-pill bg-danger" style={{ position: "relative", top: "-15px", left: "15px", marginLeft: "-15px" }}>{cartData.length}</span>}
+                                                </Link>
+                                            </li>
+                                        }
+
                                         <li className="nav-item rounded bg-white m-1  px-1" onClick={() => { localStorage.removeItem("getFoodToken"); alert("LogOut Successful"); }}>
                                             <Link className="nav-link active text-danger fw-bold" to={"/"}>LogOut</Link>
                                         </li>
@@ -145,7 +159,7 @@ const Navbar = () => {
                 {viewModalCart && <Modal onClose={() => { setViewModalCart(false) }} title="My Cart Items"> <Cart /> </Modal>}
 
                 {/* Below is used in show My orders */}
-                {viewModalMyOrders && <Modal onClose={() => { setViewModalMyOrders(false) }} title="My Orders"> <MyOrder  myOrderData={myOrderData}/> </Modal>}
+                {viewModalMyOrders && <Modal onClose={() => { setViewModalMyOrders(false) }} title="My Orders"> <MyOrder myOrderData={myOrderData} /> </Modal>}
 
             </div>
 

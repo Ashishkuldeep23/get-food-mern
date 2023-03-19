@@ -21,10 +21,10 @@ function App() {
   const [allDataOfApi, setAllDataOfApi] = useState([ [] , [] ])
 
   const [items, setItems] = useState(allDataOfApi[0])
+  const [foodCat, setFoodCat] = useState(allDataOfApi[1])
 
   const [menuList, setmenuList] = useState([])
 
-  const [foodCat, setFoodCat] = useState(allDataOfApi[1])
 
 
 
@@ -91,7 +91,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <div>
-              <Navbar />
+              <Navbar items={items} />
               <ResturentMain
                 allDataOfApi={allDataOfApi}
                 items={items}
