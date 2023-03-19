@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "../Body/style.css"
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useCart, useDispatchCart } from '../../ContextReducer'
 
 
@@ -50,34 +53,48 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn, index }) => {
 
         let token = localStorage.getItem("getFoodToken")
 
-        if(! token){
-            return alert(`Please Login first before add to cart :- ${name}` )
+        if (!token) {
+            return alert(`Please Login first before add to cart :- ${name}`)
         }
 
         // // // Below object is used to maintain value of update food item
         let foodData = {}
 
         for (let item of cartArr) {
-            if ((item.id === _id) && (item.size === itemSize) ){
-                foodData = {...item , size : itemSize , qut : itemQut , totalPrice : totalPrice() }
+            if ((item.id === _id) && (item.size === itemSize)) {
+                foodData = { ...item, size: itemSize, qut: itemQut, totalPrice: totalPrice() }
                 break
             }
         }
 
 
         if (Object.keys(foodData).length === 0) {
-            await dispatch({ type: "ADD", id: _id , name: name, image: image, qut: itemQut, singlePrice: size[itemSize], totalPrice: totalPrice(), size: itemSize })
+            await dispatch({ type: "ADD", id: _id, name: name, image: image, qut: itemQut, singlePrice: size[itemSize], totalPrice: totalPrice(), size: itemSize })
         }
 
         else {
-            if ( foodData.size === itemSize ) {
-                await dispatch({ type: "UPDATE", id: _id , totalPrice:totalPrice(), qut:itemQut , size:itemSize })
-            }else{
+            if (foodData.size === itemSize) {
+                await dispatch({ type: "UPDATE", id: _id, totalPrice: totalPrice(), qut: itemQut, size: itemSize })
+            } else {
                 await dispatch({ type: "ADD", id: _id ?? index, name: name, image: image, qut: itemQut, singlePrice: size[itemSize], totalPrice: totalPrice(), size: itemSize })
                 console.log("Size different so simply ADD one more to the list")
             }
         }
-        
+
+
+
+        toast.success(`${name} added in your cart.`, {
+            position: "top-right",
+            autoClose: 300,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        }
+        )
+
 
 
     }
@@ -85,12 +102,12 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn, index }) => {
 
 
     // // // Addin data in local storage with cartArr dependancy , so below func run first and every time with var changes ----> 
-    useEffect( ()=>{
-        localStorage.setItem("cartItems" , JSON.stringify(cartArr))
-    } , [cartArr] )
+    useEffect(() => {
+        localStorage.setItem("cartItems", JSON.stringify(cartArr))
+    }, [cartArr])
 
 
-    
+
 
     // // // Below is for show about btn ---->
     const about_more_func = (clickedEle) => {
@@ -129,11 +146,18 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn, index }) => {
 
                     <div className='d-flex justify-content-between'>
                         <button className='btn btn-outline-primary card_btn_Ak' onClick={() => { about_more_func(data) }}>About</button>
-                        <button className='btn btn-outline-success card_btn_Ak' onClick={() => { addToCartHandler(data) }}>Add Cart</button>
+                        <button className='btn btn-outline-success card_btn_Ak' onClick={() => { addToCartHandler() }}>Add Cart</button>
                     </div>
+
+
+                    <ToastContainer />
+
+
                 </div>
 
             </div>
+
+
         </>
     )
 }
