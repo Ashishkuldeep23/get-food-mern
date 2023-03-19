@@ -47,6 +47,28 @@ const reducer = (state, action) => {
         case "ALL_DELETE":
             return [];
 
+        case "ONE_MINUS":
+
+            let arr = [...state]
+            arr.find((item, index) => {
+                if ((item.id === action.data.id) && (item.size === action.data.size)) {
+                    // console.log(parseInt(item.qut) + parseInt(action.qut) , item.totalPrice + action.totalPrice)
+                    arr[index] = { ...item, qut: parseInt(item.qut) - 1, totalPrice: item.totalPrice - action.data.singlePrice }
+                }
+            })
+            return arr;
+
+        case "ONE_PLUS":
+
+            let arr1 = [...state]
+            arr1.find((item, index) => {
+                if ((item.id === action.data.id) && (item.size === action.data.size)) {
+                    arr1[index] = { ...item, qut: parseInt(item.qut) + 1, totalPrice: item.totalPrice + item.singlePrice }
+                }
+            })
+            return arr1;
+
+            
         default:
             console.log("Something breaks in reducer")
             return [];
@@ -62,7 +84,7 @@ const CartProvider = ({ children }) => {
     let cartArr = localStorage.getItem("cartItems")
     cartArr = JSON.parse(cartArr)
 
-    const [state, dispatch] = useReducer(reducer , [...cartArr || []])
+    const [state, dispatch] = useReducer(reducer, [...cartArr || []])
 
 
     return (

@@ -31,9 +31,9 @@ const Card = () => {
   const dispatch = useDispatchCart()
 
   // // // One delete ----->
-  async function singleDelete(data){
+  async function singleDelete(data) {
 
-    await dispatch({type : "ONE_DELETE" , data : data})
+    await dispatch({ type: "ONE_DELETE", data: data })
 
     // console.log(data)
 
@@ -44,7 +44,7 @@ const Card = () => {
   async function handleCheckOut() {
 
     // // Dispatch call ---->
-    await dispatch({type : "ALL_DELETE"})
+    await dispatch({ type: "ALL_DELETE" })
 
 
     // // // Logic for add in db --->
@@ -54,31 +54,59 @@ const Card = () => {
     let body = {}
     let token = JSON.parse(localStorage.getItem("getFoodToken"))
     body.token = token
-    body.food = [ {date : `${date.toDateString()} (${date.getHours()}:${date.getMinutes()}:${date.getSeconds()})`} , [...cartData] , {totalPrice : totalPrice} ]
-    
+    body.food = [{ date: `${date.toDateString()} (${date.getHours()}:${date.getMinutes()}:${date.getSeconds()})` }, [...cartData], { totalPrice: totalPrice }]
+
 
     const option = {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
     }
 
-    let logInUser = await fetch(`${process.env.REACT_APP_BACKEND}/newOrder` , option)
+    let logInUser = await fetch(`${process.env.REACT_APP_BACKEND}/newOrder`, option)
     let data = await logInUser.json()
 
 
-    if(data.status === false){
+    if (data.status === false) {
       return alert(data.message)
     }
 
-    
-    if(data.status === true){
-      return alert( `${data.message} You can see your previous order in My Order Section.`)
+
+    if (data.status === true) {
+      return alert(`${data.message} You can see your previous order in My Order Section.`)
     }
 
   }
+
+
+  // // // One plus and one minus ----->
+
+  async function oneMinus(data) {
+
+    // // // Two if added to takel both qut in from of str and in form of int ------>
+    if (data.qut === "1") {
+      await dispatch({ type: "ONE_DELETE", data: data })
+      return
+    }
+    if (data.qut === 1) {
+      await dispatch({ type: "ONE_DELETE", data: data })
+      return
+    }
+
+    await dispatch({ type: "ONE_MINUS", data: data })
+
+  }
+
+
+  async function onePlus(data) {
+
+    await dispatch({ type: "ONE_PLUS", data: data })
+  }
+
+
+
 
 
 
@@ -114,13 +142,20 @@ const Card = () => {
                       <p className='fs-4 fw-bold'>{data.name} <span className='fs-6 text-info' >({data.size})</span></p>
                       <p className='fs-5'> <span className='text-warning fw-bold'>{data.qut}</span> <span className='text-info'>*</span> ₹ {data.singlePrice}/-</p>
                     </div>
+                    <nav aria-label="Page navigation example">
+                      <ul className="pagination">
+                        <li className="page-item "><a className="page-link " href="#" onClick={() => { oneMinus(data) }}>-</a></li>
+                        <li className="page-item fw-bold"><a className="page-link bg-info text-dark" href="#">{data.qut}</a></li>
+                        <li className="page-item "><a className="page-link " href="#" onClick={() => { onePlus(data) }}>+</a></li>
+                      </ul>
+                    </nav>
                     <div>
                       <img className='foodImage mb-3' src={data.image} alt={data.name} style={{ maxWidth: "40vh", maxHeight: "40vh", width: "70%", height: "70%" }} />
                     </div>
                   </div>
                   <div className="col-4 mt-auto mb-5">
                     <h5>₹ {data.totalPrice}/-</h5>
-                    <button className='btn btn-outline-danger fw-bold' onClick={()=>{singleDelete(data)}}><i className="fa-solid fa-trash-can"></i></button>
+                    <button className='btn btn-outline-danger fw-bold' onClick={() => { singleDelete(data) }}><i className="fa-solid fa-trash-can"></i></button>
                   </div>
 
                   <hr className="text-warning" />
@@ -174,8 +209,8 @@ const Card = () => {
             <div className='d-flex'>
               <button className='btn bg-success mt-5 fw-bold text-white ms-auto ' onClick={handleCheckOut} > Check Out </button>
             </div>
-            <p>Please press Check Out and see all order in my order section.</p> 
-              <h2>Thank you for using...</h2> 
+            <p>Please press Check Out and see all order in my order section.</p>
+            <h2>Thank you for using...</h2>
           </div>
 
         }

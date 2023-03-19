@@ -83,7 +83,7 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn, index }) => {
 
 
 
-        toast.success(`${name} added in your cart.`, {
+        toast.success(`${itemQut} X ${name} added in your cart.`, {
             position: "top-right",
             autoClose: 300,
             hideProgressBar: false,
