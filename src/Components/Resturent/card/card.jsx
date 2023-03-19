@@ -106,8 +106,8 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn, index }) => {
 
                 <div className='border border-warning darkCardInnerAk'>
                     <img className='foodImage' src={image} alt={name} />
-                    <h3 className='animate__animated animate__zoomInDown checkAk '>{name}</h3>
-                    <div className='d-flex  justify-content-between mb-1'>
+                    <h3 className='animate__animated animate__zoomInDown card_name '>{name}</h3>
+                    <div className='d-flex  justify-content-between mb-1 card_detail'>
 
                         <div style={{ marginBottom: "1.5vh" }} >
 

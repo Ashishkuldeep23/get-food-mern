@@ -51,7 +51,6 @@ const Navbar = () => {
     
         
         if(inJson.status === true){
-            console.log(myOrderData)
             setMyOrderData(inJson.data.food)
           return 
         }

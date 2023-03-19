@@ -1,20 +1,7 @@
-import React, { useEffect, useState } from 'react'
+
+import "./style.css"
 
 const MyOrder = ({ myOrderData }) => {
-
-    const [foodData, setFoodData] = useState([])
-    console.log(myOrderData)
-
-    useEffect(() => {
-        let a = []
-        for (let i = 0; i < myOrderData.length; i++) {
-
-            console.log(myOrderData[i][1])
-            a.push(myOrderData[i][1])
-            setFoodData(a)
-        }
-
-    }, [])
 
     return (
         <>
@@ -41,9 +28,9 @@ const MyOrder = ({ myOrderData }) => {
 
                                                     item[1].map((ele, i) => {
                                                         return (
-                                                            <div key={i} className="border border-3 border-info m-3 rounded p-0" style={{ width: "37vh" }}>
+                                                            <div key={i} className="border border-3 border-info m-3 rounded p-0 order_card" style={{ width: "34vh"}}>
                                                                 <img className='foodImage w-100' src={ele.image} alt={ele.name} />
-                                                                <div className='px-2'>
+                                                                <div className='px-2 order_detail'>
                                                                     <div>
 
                                                                         <span>{ele.qut}{" "}</span>
