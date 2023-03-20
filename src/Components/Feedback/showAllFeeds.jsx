@@ -28,9 +28,6 @@ const ShowAllFeeds = ({getShowFeedBtnDiv}) => {
 
 
         if (network === false) {
-            // alertBoxValue = 1
-            // return showAlertBox("Please connect with network.\nBecause network connection needed for DB call.", false)
-
             return alert("Please connect with network.\nBecause network connection needed for DB call.")
         }
 
@@ -60,25 +57,11 @@ const ShowAllFeeds = ({getShowFeedBtnDiv}) => {
             prrocessAllFeed.style.visibility = "hidden"
 
 
-            // // // Make display block to see ---------->
-
-            // document.querySelector(".user_feeds_are").style.display = "block"
-
             // // // Experiment here (Worked well) --------->
             let data = a.data
             setListOfAllFeeds(data)
 
             new Audio(done).play()
-
-
-
-            // // // After successfull fetched data scrolling window till div --->
-            // // // Experiment(worked) ================>
-            // // // Window scrool to output div ----->
-
-            // // // Not Working in seprate 
-            // reftoAllFeed.current?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
-
 
             let periviousFeedBack = localStorage.getItem("FeedBackForSmallRaectAK")
             if (periviousFeedBack !== "yes") {
@@ -96,6 +79,8 @@ const ShowAllFeeds = ({getShowFeedBtnDiv}) => {
 
     useEffect( ()=>{
 
+        // // Give ref div in that fuction that use to set this value i state variables --->
+        // // Below line of code should only used in useEffect() becoz useEffect() code will run when ui get randered --->
         getShowFeedBtnDiv(refFeedClickBtn)
 
         // // below function for scroll wind to all feeds --->

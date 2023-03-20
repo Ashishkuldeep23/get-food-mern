@@ -94,7 +94,7 @@ const PostFeed = ({seeAllBtn}) => {
 
             localStorage.setItem("FeedBackForSmallRaectAK", "yes")
 
-
+            // // // Scroll wind till getAllFeed btn present ----->
             seeAllBtn.current?.scrollIntoView({ behavior: "smooth" })
 
             // // Form reset ---------->

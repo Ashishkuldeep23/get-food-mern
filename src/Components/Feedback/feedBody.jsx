@@ -20,8 +20,8 @@ const FeedBody = () => {
 
 
     // // // Below function is created for get show all btn div bu useRef hook ---------->
-
     function getShowFeedBtnDiv(value){
+        // // // If this func get called by any value this will set that value in useState varable and that var is used to scroll window ->
         setSeeAllBtn(value)
         return value
     }
