@@ -69,13 +69,17 @@ const ShowAllFeeds = ({getShowFeedBtnDiv}) => {
             }
 
 
+            // // below function for scroll wind to all feeds ---------->
+            reftoAllFeed.current?.scrollIntoView({ behavior: "smooth" })
+
+
         }
 
     }
 
 
 
-    // // // This fuction is created to scroll window after successful get feeds ------------>
+    // // // This fuction is created to scroll window ------------>
 
     useEffect( ()=>{
 
@@ -83,9 +87,7 @@ const ShowAllFeeds = ({getShowFeedBtnDiv}) => {
         // // Below line of code should only used in useEffect() becoz useEffect() code will run when ui get randered --->
         getShowFeedBtnDiv(refFeedClickBtn)
 
-        // // below function for scroll wind to all feeds --->
-        reftoAllFeed.current?.scrollIntoView({ behavior: "smooth" })
-    } ,[listOfAllFeeds] )
+    } ,[] )
 
 
 

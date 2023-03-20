@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./style.css"
+import { Link } from 'react-router-dom'
 
 
 import Card from '../card/card'
@@ -71,31 +72,34 @@ const ResturentBody = ({ items, setShowMoreAboutBtn, dataOfShowMoreAbout, foodCa
                 </div>
               )
 
-            }) 
+            })
 
-            : 
+              :
 
-            <div>
-              <p className='text-warning fs-3 mt-4'>LOADING DATA...</p>
-              <p className='mt-2'>*Please Refresh Page, if not getting data after long time (max 10 seconds).</p>
-              <hr />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-              <p className='mt-3'>*Data loading or check your data (May be slow) </p>
-              <p className='mt-2'>*For Developer :- Backend server is stopped or crashed.</p>
-            </div>
+              <div>
+                <p className='text-warning fs-3 mt-4'>LOADING DATA...</p>
+                <p className='mt-2'>*Please Refresh Page, if not getting data after long time (max 10 seconds).</p>
+                <hr />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <p className='mt-3'>*Data loading or check your data (May be slow) </p>
+                <p className='mt-2'>*For Developer :- Backend server is stopped or crashed.</p>
+              </div>
 
           }
 
 
+
+
         </div>
 
+        <Link className="btn btn-success fw-bold position-absolute end-0 mx-5" to={"/feed"}>GoTo Feedback Section</Link>
       </div>
 
     </div>
