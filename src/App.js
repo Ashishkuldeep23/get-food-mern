@@ -6,6 +6,8 @@ import ResturentMain from "./Components/Resturent/ResturentMain";
 import Login from "./Components/LoginAndSignin/Login";
 import Signin from "./Components/LoginAndSignin/Signin";
 
+import FeedBody from "./Components/Feedback/feedBody"
+
 
 import { Navigate, Route, Routes } from "react-router-dom";
 
@@ -102,6 +104,7 @@ function App() {
           />
           <Route path="/logIn" element={<Login />} />
           <Route path="/signIn" element={<Signin />} />
+          <Route path="/feed" element={<FeedBody />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
 

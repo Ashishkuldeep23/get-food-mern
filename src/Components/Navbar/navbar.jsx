@@ -78,11 +78,11 @@ const Navbar = ({ items }) => {
                     <div className="container-fluid ">
                         <a className="navbar-brand fs-1 fw-bolder brand_name" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">GetFood</a>
 
+                        {/* Below div will only show on clik of brand name */}
                         <div className="collapse" id="collapseExample">
                             <div className="card card-body position-absolute top-0 end-0">
 
                                 <div>
-
                                     <a className="btn btn-danger  position-absolute fw-bold top-0 start-0 m-2 " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">X</a>
                                     <h3 className='text-center text-warning'>About of GetFood</h3>
 
@@ -95,8 +95,9 @@ const Navbar = ({ items }) => {
                                     <li>5</li>
                                 </ul>   
 
-                                <a className="btn btn-danger fw-bold "  data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Close info section</a>
+                                <Link className="btn btn-success fw-bold my-3 " to={"/feed"}>GoTo Feedback Section</Link>
 
+                                <a className="btn btn-danger fw-bold "  data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Close Info section</a>
                             </div>
                         </div>
 
