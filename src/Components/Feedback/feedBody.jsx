@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import PostFeed from "./PostFeed"
 
@@ -16,7 +16,15 @@ import { Link } from "react-router-dom";
 
 const FeedBody = () => {
 
+    const [seeAllBtn , setSeeAllBtn] =    useState(null)
 
+
+    // // // Below function is created for get show all btn div bu useRef hook ---------->
+
+    function getShowFeedBtnDiv(value){
+        setSeeAllBtn(value)
+        return value
+    }
 
 
 
@@ -41,7 +49,7 @@ const FeedBody = () => {
                 <div className="d-md-flex justify-content-evenly">
 
                     {/* Main of post feed from */}
-                    <PostFeed />
+                    <PostFeed seeAllBtn={seeAllBtn} />
 
 
                     {/* Main for about me */}
@@ -55,7 +63,7 @@ const FeedBody = () => {
 
                 {/* <div className=" d-flex justify-content-center "> */}
 
-                    <ShowAllFeeds />
+                    <ShowAllFeeds getShowFeedBtnDiv={getShowFeedBtnDiv} />
                 {/* </div> */}
 
 

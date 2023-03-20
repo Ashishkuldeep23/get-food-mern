@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const PostFeed = () => {
+const PostFeed = ({seeAllBtn}) => {
 
     let date = new Date()
 
@@ -52,8 +52,6 @@ const PostFeed = () => {
 
 
         if (!formInput.feedbackName) {
-            alert("Name Not given.")
-
             setFormInput((p) => {
                 return {
                     ...p,
@@ -95,6 +93,9 @@ const PostFeed = () => {
             progress.style.visibility = "hidden"
 
             localStorage.setItem("FeedBackForSmallRaectAK", "yes")
+
+
+            seeAllBtn.current?.scrollIntoView({ behavior: "smooth" })
 
             // // Form reset ---------->
             setFormInput({ feedbackName: "", feedbackMsg: "", feedbackType: "Feedback", feedFromWebName: window.location.href, whenCreated: `${date}` })

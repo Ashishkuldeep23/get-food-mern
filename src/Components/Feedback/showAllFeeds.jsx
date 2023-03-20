@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState , useRef, useEffect } from 'react'
 
 import done from "./done.mp3"
 
@@ -7,17 +7,18 @@ import "./style.css"
 import IndividualFeed from './IndividualFeed'
 
 
-const ShowAllFeeds = () => {
+const ShowAllFeeds = ({getShowFeedBtnDiv}) => {
 
     const [listOfAllFeeds, setListOfAllFeeds] = useState([])
 
 
     // // // useRef hook for scrool down when somthing done.
-    // const reftoAllFeed = useRef(null);
-    // const refFeedClickBtn = useRef(null)
+    const reftoAllFeed = useRef(null);
+    const refFeedClickBtn = useRef(null)
 
     // // // to check network ---------->
     const network = navigator.onLine
+
 
 
 
@@ -76,7 +77,6 @@ const ShowAllFeeds = () => {
             // // // Window scrool to output div ----->
 
             // // // Not Working in seprate 
-            // reftoAllFeed.current?.scrollIntoView({ behavior: "smooth" })
             // reftoAllFeed.current?.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
 
 
@@ -92,21 +92,33 @@ const ShowAllFeeds = () => {
 
 
 
+    // // // This fuction is created to scroll window after successful get feeds ------------>
+
+    useEffect( ()=>{
+
+        getShowFeedBtnDiv(refFeedClickBtn)
+
+        // // below function for scroll wind to all feeds --->
+        reftoAllFeed.current?.scrollIntoView({ behavior: "smooth" })
+    } ,[listOfAllFeeds] )
+
+
+
 
     return (
         <>
 
-            <div className="show_all_feeds_topmost_div " >
+            <div className="show_all_feeds_topmost_div "  >
 
-                <div className="show_All_FeedBack_main">
+                <div className="show_All_FeedBack_main" >
                     <h1>Click on Show Button to see all Feedbacks</h1>
-                    <input type="button" value="Show All Feedbacks" onClick={() => { showAllFeedBack() }} id="show_all_feed_btn" />
+                    <input type="button" ref={refFeedClickBtn} value="Show All Feedbacks" onClick={() => { showAllFeedBack() }} id="show_all_feed_btn" />
 
                     <div id="process_all_feeds"></div>
 
                     {/* Experiment -----------> */}
 
-                    <div id="all_feedback">
+                    <div id="all_feedback" ref={reftoAllFeed}>
 
 
                         {
