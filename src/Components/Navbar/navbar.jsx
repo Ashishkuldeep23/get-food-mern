@@ -32,6 +32,8 @@ const Navbar = ({ items }) => {
     // // // My previous order code ------------>
     const [myOrderData, setMyOrderData] = useState([])
 
+
+
     async function myOrderHandler() {
 
         let body = {
@@ -56,7 +58,8 @@ const Navbar = ({ items }) => {
 
 
         if (inJson.status === true) {
-            setMyOrderData(inJson.data.food)
+            // // // arr.reverse() function used to receive newes order --------->
+            setMyOrderData(inJson.data.food.reverse())
             return
         }
 

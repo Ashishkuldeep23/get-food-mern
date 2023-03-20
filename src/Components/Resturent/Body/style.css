@@ -34,17 +34,21 @@
 
 
 .cardAk:hover .card_name{
-    background-color: black;
+    background-color: #1b1212;
     transform: translateY(-10px);
-    transition:0.15s , ease-in-out alternate ;
+    transition:0.15s , ease-in-out alternate reverse;
+    font-weight: bold;
+
 
 }
 
 
 .cardAk:hover .card_detail{
-    background-color: black;
-    transform: translateY(-15px);
+    background-color: #1b1212;
+    transform: translateY(-7px) scaleY(1.3)  scaleX(1.025);
     transition:0.5s , ease-in-out alternate ;
+    font-weight: bold;
+    
 
 }
 

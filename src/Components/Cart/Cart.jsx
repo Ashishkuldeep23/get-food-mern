@@ -85,12 +85,8 @@ const Card = () => {
 
   async function oneMinus(data) {
 
-    // // // Two if added to takel both qut in from of str and in form of int ------>
-    if (data.qut === "1") {
-      await dispatch({ type: "ONE_DELETE", data: data })
-      return
-    }
-    if (data.qut === 1) {
+    // // // data.qut must be converted into integer value or str value and then compare acc. ------>
+    if (parseInt(data.qut) === 1) {
       await dispatch({ type: "ONE_DELETE", data: data })
       return
     }
@@ -144,8 +140,10 @@ const Card = () => {
                     </div>
                     <nav aria-label="Page navigation example">
                       <ul className="pagination">
-                        <li className="page-item "><a className="page-link " href="#" onClick={() => { oneMinus(data) }}>-</a></li>
-                        <li className="page-item fw-bold"><a className="page-link bg-info text-dark" href="#">{data.qut}</a></li>
+                        <li className="page-item ">
+                          <a className="page-link " href="#" onClick={() => { oneMinus(data) }}>{ (parseInt(data.qut) > 1)? "-" : <i className="fa-solid fa-trash-can p-0 text-danger"></i> }</a>
+                        </li>
+                        <li className="page-item fw-bold"><a className="page-link bg-info text-dark disabled px-3" href="#">{data.qut}</a></li>
                         <li className="page-item "><a className="page-link " href="#" onClick={() => { onePlus(data) }}>+</a></li>
                       </ul>
                     </nav>
