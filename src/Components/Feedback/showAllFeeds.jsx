@@ -40,7 +40,7 @@ const ShowAllFeeds = () => {
         // prrocessAllFeed.style.display = "block";
 
 
-        let data = await fetch("https://feedback-hzwx.onrender.com/getFeedback/smallReact1")
+        let data = await fetch("https://feedback-hzwx.onrender.com/getFeedback/getFood")
 
         let a = await data.json()
 
@@ -121,7 +121,7 @@ const ShowAllFeeds = () => {
                                     feedbackMsg={item.feedbackMsg}
                                     reply={item.reply}
                                     whenCreated={item.whenCreated}
-                                    index={index}
+                                    index={listOfAllFeeds.length-index}
                                 />)
                             })
 

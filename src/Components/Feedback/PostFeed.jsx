@@ -80,7 +80,7 @@ const PostFeed = () => {
         }
 
 
-        let data = await fetch("https://feedback-hzwx.onrender.com/newFeedback/smallReact1", option)
+        let data = await fetch("https://feedback-hzwx.onrender.com/newFeedback/getFood", option)
 
         let a = await data.json()
 
