@@ -21,6 +21,10 @@ const Card = () => {
 
     setTotalPrice(p)
 
+    if(totalPrice > 2000 && totalPrice < 2300){
+      alert("Check your pocket dude 😂,So Sorry.")
+    }
+
   }, [cartData])
 
 
@@ -97,11 +101,6 @@ const Card = () => {
 
 
   async function onePlus(data) {
-
-    if (parseInt(data.qut) > 8 && parseInt(data.qut) < 10 ) { 
-      alert("Check your pocket dude 😂,So Sorry.")
-    }
-
     await dispatch({ type: "ONE_PLUS", data: data })
   }
 
