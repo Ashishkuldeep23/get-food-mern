@@ -76,7 +76,31 @@ const Navbar = ({ items }) => {
 
                 <nav className="navbar navbar-expand-sm bg-success">
                     <div className="container-fluid ">
-                        <a className="navbar-brand fs-1 fw-bolder" id='brand_name' href="#">GetFood</a>
+                        <a className="navbar-brand fs-1 fw-bolder brand_name" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">GetFood</a>
+
+                        <div className="collapse" id="collapseExample">
+                            <div className="card card-body position-absolute top-0 end-0">
+
+                                <div>
+
+                                    <a className="btn btn-danger  position-absolute fw-bold top-0 start-0 m-2 " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">X</a>
+                                    <h3 className='text-center text-warning'>About of GetFood</h3>
+
+                                </div>
+
+                                <ul>
+                                    <li>1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis molestiae magni totam ipsam dolore sed debitis eum reprehenderit dicta laudantium. Sunt corporis eaque sequi, culpa suscipit itaque rerum quam assumenda.</li>
+                                    <li>2</li>
+                                    <li>4</li>
+                                    <li>5</li>
+                                </ul>   
+
+                                <a className="btn btn-danger fw-bold "  data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Close info section</a>
+
+                            </div>
+                        </div>
+
+
                         {/* <a className="nav-link active  text-white border border-white rounded p-2 ms-1 ms-sm-5" href="#">My Orders</a> */}
 
                         <div className='ms-auto'>
@@ -122,7 +146,7 @@ const Navbar = ({ items }) => {
                                     ?
                                     <ul className="navbar-nav ms-auto d-inline-block d-sm-flex ">
 
-                                        {/* Cart 2nd +++++++++++++++++++++++++++ */ }
+                                        {/* Cart 2nd +++++++++++++++++++++++++++ */}
                                         {
                                             (items.length !== 0)
                                             &&
