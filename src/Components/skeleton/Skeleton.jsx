@@ -4,7 +4,7 @@ const Skeleton = () => {
     return (
         <>
 
-            <div className='   border border-3 border-warning  rounded p-2' style={{ width: "37vh", display: "inline-block", margin: "4vh 4vh 0 0" }}>
+            <div className='   border border-3 border-warning  rounded p-1' style={{ width: "35vh", display: "inline-block", margin: "4vh 4vh 0 0" }}>
 
                 <div className='foodImage  border-bottom d-flex justify-content-center align-items-center ' >
                     <div className="spinner-grow text-danger fs-1 h-75 w-75" role="status">
@@ -36,7 +36,7 @@ const Skeleton = () => {
                 </div>
                 <hr />
                 <button className='btn btn-outline-primary mx-2 card_btn_Ak' onClick={ ()=>{alert("Give some time to open actual data.")}} >About</button>
-                <button className='btn btn-outline-success ms-5 card_btn_Ak' onClick={ ()=>{alert("Give some time to open actual data.")}} >Cart</button>
+                <button className='btn btn-outline-success mx-2  card_btn_Ak' onClick={ ()=>{alert("Give some time to open actual data.")}} >Add Cart</button>
             </div>
             {/* </div> */}
 

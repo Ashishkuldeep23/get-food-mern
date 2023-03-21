@@ -65,7 +65,7 @@ const ShowAllFeeds = ({getShowFeedBtnDiv}) => {
 
             let periviousFeedBack = localStorage.getItem("FeedBackForSmallRaectAK")
             if (periviousFeedBack !== "yes") {
-                alert("Please Give your valuable feedback for this Small React app.\nMy apology for Alert.")
+                alert("Please Give your valuable feedback for this GetFood web app.\nMy apology for Alert.")
             }
 
 
