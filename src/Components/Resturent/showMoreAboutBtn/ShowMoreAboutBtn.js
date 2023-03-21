@@ -68,14 +68,21 @@ const ShowMoreAboutBtn = ({   showMoreAboutData }) => {
             <h6>MERN Stack (Learning)</h6>
 
             <div>
-              <a href="https://www.linkedin.com/in/ashish-kuldeep-09b96018b" rel="noreferrer" target={"_blank"} ><img src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Linkedin2_svg-512.png" className="logosInShowMore" alt="Linkedin" />
+              <a href="https://www.linkedin.com/in/ashish-kuldeep-09b96018b" rel="noreferrer" target={"_blank"} >
+                <img src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Linkedin2_svg-512.png" className="logosInShowMore" alt="Linkedin" />
               </a>
 
-              <a href="https://github.com/Ashishkuldeep23" rel="noreferrer" target={"_blank"} ><img src="https://cdn3.iconfinder.com/data/icons/social-media-2253/25/Group-512.png" className="logosInShowMore" alt="Github" /></a>
+              <a href="https://github.com/Ashishkuldeep23" rel="noreferrer" target={"_blank"} >
+                <img src="https://cdn3.iconfinder.com/data/icons/social-media-2253/25/Group-512.png" className="logosInShowMore" alt="Github" />
+              </a>
 
-              <a href="https://mobile.twitter.com/ashishkuldeep23" rel="noreferrer" target={"_blank"}><img src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Twitter5_svg-512.png" className="logosInShowMore" alt="Tiwtter" /></a>
+              <a href="https://mobile.twitter.com/ashishkuldeep23" rel="noreferrer" target={"_blank"}>
+                <img src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Twitter5_svg-512.png" className="logosInShowMore" alt="Tiwtter" />
+              </a>
 
-              <a href="https://www.youtube.com/@ashishkuldeep2305" rel="noreferrer" target={"_blank"} ><img src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Youtube3_svg-512.png" className="logosInShowMore" alt="Youtube" /></a>
+              <a href="https://www.youtube.com/@ashishkuldeep2305" rel="noreferrer" target={"_blank"} >
+                <img src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Youtube3_svg-512.png" className="logosInShowMore" alt="Youtube" />
+              </a>
             </div>
 
           </div>

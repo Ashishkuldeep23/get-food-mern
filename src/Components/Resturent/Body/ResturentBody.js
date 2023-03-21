@@ -79,6 +79,7 @@ const ResturentBody = ({ items, setShowMoreAboutBtn, dataOfShowMoreAbout, foodCa
               <div>
                 <p className='text-warning fs-3 mt-4'>LOADING DATA...</p>
                 <p className='mt-2'>*Please Refresh Page, if not getting data after long time (max 10 seconds).</p>
+                <p className='mt-0'>*Please Refresh Page, Twice or Thrice if not getting actual data.</p>
                 <hr />
                 <Skeleton />
                 <Skeleton />
@@ -88,7 +89,8 @@ const ResturentBody = ({ items, setShowMoreAboutBtn, dataOfShowMoreAbout, foodCa
                 <Skeleton />
                 <Skeleton />
                 <Skeleton />
-                <p className='mt-3'>*Data loading or check your data (May be slow) </p>
+                <p className='mt-3'>*Data is loading or check your data (May be slow) </p>
+                <p className='mt-3'>*Some time it give undefind error , then please Refresh the page</p>
                 <p className='mt-2'>*For Developer :- Backend server is stopped or crashed.</p>
               </div>
 

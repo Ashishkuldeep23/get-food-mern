@@ -79,7 +79,7 @@ const Navbar = ({ items }) => {
                         <a className="navbar-brand fs-1 fw-bolder brand_name" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">GetFood</a>
 
                         {/* Below div will only show on clik of brand name */}
-                        <div className="collapse" id="collapseExample">
+                        <div className="collapse" id="collapseExample" style={ { zIndex : "1000"} }>
                             <div className="card card-body position-absolute top-0 end-0">
 
                                 <div>
@@ -88,11 +88,25 @@ const Navbar = ({ items }) => {
 
                                 </div>
 
-                                <ul>
-                                    <li>1 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis molestiae magni totam ipsam dolore sed debitis eum reprehenderit dicta laudantium. Sunt corporis eaque sequi, culpa suscipit itaque rerum quam assumenda.</li>
-                                    <li>2</li>
-                                    <li>4</li>
-                                    <li>5</li>
+                                <ul className='text-white'>
+                                    <li>This is an online food delivery type Web App named GetFood. Ex: Zomato and Swiggy.</li>
+                                    <li>I have created these features like :- add foods into cart and order food and see all previous orders.</li>
+                                    <li>In the cart section users can increase the quantity of food and can remove one item and by clicking on the Check Out button your cart will be added into your database and items are ready for delivery.</li>
+                                    <li>These features are only accessible once a user is logged with registered email and password.</li>
+                                    <li>An About section is present where users can see more about food items and some description related to the food item.</li>
+                                    <li>All displayed food are categories according to food type.</li>
+                                    <li>In the signIn section a Current Location button is present that gives the user’s current location that is coming from the free api according to user location , this features need location permission, so if you are ok with that then please check out once.</li>
+                                    <li>A Feedback section is present where users can give their valuable feedback by submitting a simple form and he/she can see all previous feedback about this web app by clicking on See All Feedback button.</li>
+                                    <li>All necessary links are :-</li>
+                                    <li>
+                                        <i className="fa-brands fa-youtube fa-bounce fa-sm"></i> :- 
+                                        <a href="https://youtu.be/hTAqK7a2m-U" target={"_blank".toString()}>https://youtu.be/hTAqK7a2m-U</a> 
+                                    </li>
+                                    <li>
+                                        <i className="fa-brands fa-linkedin fa-bounce fa-sm"></i> :-    
+                                        <a href="https://youtu.be/hTAqK7a2m-U" target={"_blank".toString()}>https://youtu.be/hTAqK7a2m-U</a> 
+                                    </li>
+                                    <li>Thank You!😊</li>
                                 </ul>   
 
                                 <Link className="btn btn-success fw-bold my-3 " to={"/feed"}>GoTo Feedback Section</Link>
@@ -160,7 +174,7 @@ const Navbar = ({ items }) => {
                                             </li>
                                         }
 
-                                        <li className="nav-item rounded bg-white m-1  px-1" onClick={() => { localStorage.removeItem("getFoodToken"); alert("LogOut Successful"); }}>
+                                        <li className="nav-item rounded bg-white m-1  px-1" onClick={() => { localStorage.removeItem("getFoodToken"); alert("LogOut Successful"); location.reload();}}>
                                             <Link className="nav-link active text-danger fw-bold" to={"/"}>LogOut</Link>
                                         </li>
                                     </ul>
