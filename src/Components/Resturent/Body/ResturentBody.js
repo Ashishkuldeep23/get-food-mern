@@ -99,7 +99,7 @@ const ResturentBody = ({ items, setShowMoreAboutBtn, dataOfShowMoreAbout, foodCa
 
         </div>
 
-        <Link className="btn btn-success fw-bold position-absolute end-0 mx-5" to={"/feed"}>GoTo Feedback Section</Link>
+        <Link className="btn btn-success fw-bold position-absolute end-0 mx-sm-5" to={"/feed"}>GoTo Feedback Section</Link>
       </div>
 
     </div>

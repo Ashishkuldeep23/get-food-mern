@@ -54,7 +54,7 @@ const Card = ({ data, dataOfShowMoreAbout, setShowMoreAboutBtn, index }) => {
         let token = localStorage.getItem("getFoodToken")
 
         if (!token) {
-            return alert(`Please Login first before add to cart :- ${name}`)
+            return alert(`Please Login first , then Add to cart :- ${name}`)
         }
 
         // // // Below object is used to maintain value of update food item
