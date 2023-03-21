@@ -177,8 +177,8 @@ const Signin = () => {
               <label htmlFor="exampleInputPassword1" className="form-label fw-bold">Password</label>
               <input type="password" className="form-control bg-dark" id="exampleInputPassword1" name="password" value={formData.password} onChange={onChangeHandler} />
             </div>
-            <button type="submit" className="btn btn-primary m-1" onClick={() => { navigate("/logIn") }}>Already a User</button>
             <button type="submit" className="btn btn-success m-1" onClick={clickHandler}>SingIn</button>
+            <button className="btn btn-primary m-1" onClick={() => { navigate("/logIn") }}>Already a User</button>
           </form>
         </div>
 
