@@ -174,7 +174,7 @@ const Navbar = ({ items }) => {
                                             </li>
                                         }
 
-                                        <li className="nav-item rounded bg-white m-1  px-1" onClick={() => { localStorage.removeItem("getFoodToken"); alert("LogOut Successful"); location.reload();}}>
+                                        <li className="nav-item rounded bg-white m-1  px-1" onClick={() => { localStorage.removeItem("getFoodToken"); alert("LogOut Successful"); window.location.reload();}}>
                                             <Link className="nav-link active text-danger fw-bold" to={"/"}>LogOut</Link>
                                         </li>
                                     </ul>
