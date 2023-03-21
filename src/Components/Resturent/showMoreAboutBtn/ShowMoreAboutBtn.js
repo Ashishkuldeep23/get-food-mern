@@ -38,7 +38,7 @@ const ShowMoreAboutBtn = ({   showMoreAboutData }) => {
             <h4>Category : {category}</h4>
             <h4>Subcategory : {subcategory}</h4>
 
-            <button className='btn btn-outline-success card_btn_Ak' onClick={() => { alert([name, price]) }}>Add Cart</button>
+            {/* <button className='btn btn-outline-success card_btn_Ak' onClick={() => { alert([name, price]) }}>Add Cart</button> */}
             
           </section>
 
