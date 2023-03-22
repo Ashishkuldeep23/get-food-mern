@@ -89,18 +89,20 @@ const Navbar = ({ items }) => {
                                 </div>
 
                                 <ul className='text-white'>
-                                    <li>This is an online food delivery type Web App named GetFood. Ex: Zomato and Swiggy.</li>
-                                    <li>I have created these features like :- add foods into cart and order food and see all previous orders.</li>
-                                    <li>In the cart section users can increase the quantity of food and can remove one item and by clicking on the Check Out button your cart will be added into your database and items are ready for delivery.</li>
-                                    <li>These features are only accessible once a user is logged with registered email and password.</li>
-                                    <li>An About section is present where users can see more about food items and some description related to the food item.</li>
-                                    <li>All displayed food are categories according to food type.</li>
-                                    <li>In the signIn section a Current Location button is present that gives the user’s current location that is coming from the free api according to user location , this features need location permission, so if you are ok with that then please check out once.</li>
-                                    <li>A Feedback section is present where users can give their valuable feedback by submitting a simple form and he/she can see all previous feedback about this web app by clicking on See All Feedback button.</li>
+                                    <li>This is an <strong>online food delivery</strong> type Web App named <strong>GetFood</strong>. Ex: Zomato and Swiggy.</li>
+                                    <li>I have created these features like :- <strong>add foods into cart and order food and see all previous orders</strong>.</li>
+                                    <li>In the cart section users can <strong> increase the quantity</strong> of food and can <strong> remove one </strong>item and by clicking on the <strong>Check Out</strong> button your cart will be added into your database and items are ready for delivery.</li>
+                                    <li>These features are only accessible once a user is <strong> logged with registered email and password.</strong></li>
+                                    <li>An <strong>About section</strong> is present where users can see more about food items and some description related to the food item.</li>
+                                    <li>All <strong>displayed food are categories according</strong> to food type.</li>
+                                    <li>In the signIn section a <strong> Current Location button</strong> is present that gives the user’s current location that is coming from the free api according to user location , this features need location permission, so if you are ok with that then please check out once.</li>
+                                    <li>A <strong>Web skeleton</strong> is present that shows loading... or getting actual data from DB.</li>
+                                    <li>A <strong>Feedback section</strong> is present where users can give their valuable feedback by submitting a simple form and he/she can see all previous feedback about this web app by clicking on See All Feedback button.</li>
                                     <li>
                                         If you are lazy like me 😂or you do not want to register yourself in my web app then you can use these credentials :-
-                                        [ Email :- <strong>ashish2305@gmail.com</strong> ]
-                                       [ Pass :- <strong>ak@2305</strong> ]
+                                        [ Email :- <strong className='text-warning'>ashish2305@gmail.com</strong> ]
+                                        [ Pass :- <strong className='text-warning'>ak@2305</strong> ]
+                                        [Dummy Email]
                                     </li>
                                     <li>All necessary links are :-</li>
                                     <li>
@@ -109,10 +111,11 @@ const Navbar = ({ items }) => {
                                     </li>
                                     <li>
                                         <i className="fa-brands fa-linkedin fa-bounce fa-sm"></i> :-
-                                        <a href="https://youtu.be/hTAqK7a2m-U" target={"_blank".toString()}>https://youtu.be/hTAqK7a2m-U</a>
+                                        <a href="https://www.linkedin.com/posts/ashish-kuldeep-09b96018b_connections-react-project-activity-7044137987449729024-1q5p?utm_source=share&utm_medium=member_desktop" target={"_blank".toString()}>Linkedin post link</a>
                                     </li>
                                     <li>Thank You!😊</li>
                                 </ul>
+
 
                                 <Link className="btn btn-success fw-bold my-3 " to={"/feed"}>GoTo Feedback Section</Link>
 
