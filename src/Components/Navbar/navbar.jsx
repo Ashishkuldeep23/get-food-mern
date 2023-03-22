@@ -209,7 +209,7 @@ const Navbar = ({ items }) => {
                 {viewModalCart && <Modal onClose={() => { setViewModalCart(false) }} title="My Cart Items"> <Cart /> </Modal>}
 
                 {/* Below is used in show My orders */}
-                {viewModalMyOrders && <Modal onClose={() => { setViewModalMyOrders(false) }} title="My Orders"> <MyOrder myOrderData={myOrderData} /> </Modal>}
+                {viewModalMyOrders && <Modal onClose={() => { setViewModalMyOrders(false) }} title="My Orders History"> <MyOrder myOrderData={myOrderData} /> </Modal>}
 
             </div>
 
