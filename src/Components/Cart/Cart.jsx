@@ -11,9 +11,6 @@ const Card = () => {
 
   const [totalPrice, setTotalPrice] = useState(0)
 
-  // // // Below useState is use to make reversed array or card data -------->
-  const [revCartData , setRevCartData] = useState([])
-
 
 
   useEffect(() => {
@@ -30,11 +27,9 @@ const Card = () => {
       alert("Check your pocket dude 😂,So Sorry.")
     }
 
-    // // // This code for Reverse cardData --->
-    setRevCartData(cartData.reverse())
+
 
   }, [cartData])
-
 
 
 
@@ -132,17 +127,17 @@ const Card = () => {
 
 
         {
-          (revCartData.length !== 0)
+          (cartData.length !== 0)
             ?
-            revCartData.map((data, i) => {
+            cartData.map((data, i) => {
               return (
 
                 <div key={i} className='row' >
 
-                  <div className="col-1 d-none d-sm-block text-info fw-bold">SR. {revCartData.length - i}</div>
+                  <div className="col-1 d-none d-sm-block text-info fw-bold">SR. {cartData.length - i}</div>
                   <div className="col ">
                     <div className='mx-1'>
-                      <p className='d-sm-none text-info fw-bold'>SR. {revCartData.length - i}</p>
+                      <p className='d-sm-none text-info fw-bold'>SR. {cartData.length - i}</p>
                       <p className='fs-4 fw-bold'>{data.name} <span className='fs-6 text-info' >({data.size})</span></p>
                       <p className='fs-5'> <span className='text-warning fw-bold'>{data.qut}</span> <span className='text-info'>*</span> ₹ {data.singlePrice}/-</p>
                     </div>

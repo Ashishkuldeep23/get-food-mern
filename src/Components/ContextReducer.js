@@ -6,11 +6,16 @@ const CartStateContext = createContext();
 const CartDispatchContext = createContext();
 
 
+// // // By changing simple line i can revers my cardData array -->
+// // // Change in adding new item :- add new item first then spread old state value.
+// // // now adding new obj first and then spread previous state value 
+// // // [ {new add data} , ...state(previous state) ]  , this is simple change.
+
 const reducer = (state, action) => {
 
     switch (action.type) {
         case "ADD":
-            return [...state, { id: action.id, name: action.name, image: action.image, singlePrice: action.singlePrice, qut: action.qut, totalPrice: action.totalPrice, size: action.size }];
+            return [ { id: action.id, name: action.name, image: action.image, singlePrice: action.singlePrice, qut: action.qut, totalPrice: action.totalPrice, size: action.size } , ...state];
 
         case "ONE_DELETE":
             let newStateOneDel = []
