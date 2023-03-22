@@ -29,7 +29,7 @@ const Modal = ({ children, onClose, title = "I'm Modal" , Div="modal"}) => {
 
   return ReactDom.createPortal(
     <>
-      <div style={OVERLAY_STYLES}  >
+      <div style={OVERLAY_STYLES} className="animate__animated animate__zoomInUp"  >
 
         <div className='modal_inner' style={MODAL_STYLES}>
             

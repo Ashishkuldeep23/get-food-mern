@@ -79,8 +79,8 @@ const Navbar = ({ items }) => {
                         <a className="navbar-brand fs-1 fw-bolder brand_name" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">GetFood</a>
 
                         {/* Below div will only show on clik of brand name */}
-                        <div className="collapse" id="collapseExample" style={{ zIndex: "1000" }}>
-                            <div className="card card-body position-absolute top-0 end-0">
+                        <div className="collapse"  id="collapseExample" style={{ zIndex: "1000" }}>
+                            <div className="card card-body position-absolute top-0 end-0 animate__animated animate__rotateInDownLeft">
 
                                 <div>
                                     <a className="btn btn-danger  position-absolute fw-bold top-0 start-0 m-2 " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">X</a>
