@@ -58,9 +58,51 @@ const Navbar = ({ items }) => {
 
 
         if (inJson.status === true) {
-            // // // arr.reverse() function used to receive newes order --------->
-            setMyOrderData(inJson.data.food.reverse())
-            return
+
+            if (inJson.data === null) {
+
+                // // // So now if data will return null means no data found with this userID , so for that case i'm sending a dummy data from front end ---->
+
+                let noItem = [
+                    [
+                        { date: "No previous Order found, Please order something" },
+                        [
+                            {
+                                image: "https://grocerycart.wawbizstores.com/assets/images/no_order1.png",
+                                name: "No Order Found",
+                                qut: "0",
+                                size: "Nothing",
+                                singlePrice: "0000",
+                            },
+                            {
+                                image: "https://grocerycart.wawbizstores.com/assets/images/no_order1.png",
+                                name: "No Order Found",
+                                qut: "0",
+                                size: "Nothing",
+                                singlePrice: "0000",
+                            },
+                            {
+                                image: "https://grocerycart.wawbizstores.com/assets/images/no_order1.png",
+                                name: "No Order Found",
+                                qut: "0",
+                                size: "Nothing",
+                                singlePrice: "0000",
+                            },
+                        ],
+                        { totalPrice: "0000" }
+                    ],
+                ]
+
+
+                return setMyOrderData(noItem)
+
+            } else {
+
+                // // // arr.reverse() function used to receive newes order --------->
+                return setMyOrderData(inJson.data.food.reverse())
+            }
+
+
         }
 
 
@@ -79,7 +121,7 @@ const Navbar = ({ items }) => {
                         <a className="navbar-brand fs-1 fw-bolder brand_name" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">GetFood</a>
 
                         {/* Below div will only show on clik of brand name */}
-                        <div className="collapse"  id="collapseExample" style={{ zIndex: "1000" }}>
+                        <div className="collapse" id="collapseExample" style={{ zIndex: "1000" }}>
                             <div className="card card-body position-absolute top-0 end-0 animate__animated animate__rotateInDownLeft">
 
                                 <div>
