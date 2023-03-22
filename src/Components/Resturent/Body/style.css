@@ -32,6 +32,17 @@
 }
 
 
+
+
+.foodImage {
+    height: 35vh;
+    width: 100%;
+    border-radius: 1vh;
+    object-fit: cover;
+}
+
+
+
 .cardAk:hover .card_name {
     background-color: #1b1212;
     transform: translateY(-10px);
@@ -51,13 +62,9 @@
 
 }
 
-
-
-.foodImage {
-    height: 35vh;
-    width: 100%;
-    border-radius: 1vh;
-    object-fit: cover;
+.cardAk:hover .foodImage {
+    transform:  scale(0.99);
+    transition: 0.5s, ease-in-out alternate;
 }
 
 
@@ -65,9 +72,6 @@
 .card_btn_Ak:hover {
     transform: translateY(-0.3vh);
 }
-
-
-
 
 
 

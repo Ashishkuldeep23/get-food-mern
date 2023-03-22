@@ -20,7 +20,7 @@ const MyOrder = ({ myOrderData }) => {
                                         <div key={index}>
                                             <h1 className='text-center text-info'>
                                                 {item[0].date}
-                                                <span className='text-center text-warning fs-4 mx-2'>[₹ {item[2].totalPrice || "Not Given"}/-]</span>
+                                                <span className='text-center text-warning fs-4 mx-2'>[{item[1].length} Items] [₹ {item[2].totalPrice || "Not Given"}/-]</span>
                                                 <hr />
                                             </h1>                                            
                                             <div className='row mx-auto justify-content-center'>

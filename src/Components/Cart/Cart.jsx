@@ -5,15 +5,20 @@ import { useCart, useDispatchCart } from '../ContextReducer'
 
 const Card = () => {
 
-  const [totalPrice, setTotalPrice] = useState(0)
-
 
   const cartData = useCart()
   // console.log(cartData)
 
+  const [totalPrice, setTotalPrice] = useState(0)
+
+  // // // Below useState is use to make reversed array or card data -------->
+  const [revCartData , setRevCartData] = useState([])
+
+
 
   useEffect(() => {
 
+    // // // This code for total price --->
     let p = 0
     cartData.map((item, i) => {
       p += item.totalPrice
@@ -24,6 +29,9 @@ const Card = () => {
     if(totalPrice > 2000 && totalPrice < 2300){
       alert("Check your pocket dude 😂,So Sorry.")
     }
+
+    // // // This code for Reverse cardData --->
+    setRevCartData(cartData.reverse())
 
   }, [cartData])
 
@@ -40,7 +48,6 @@ const Card = () => {
     await dispatch({ type: "ONE_DELETE", data: data })
 
     // console.log(data)
-
   }
 
 
@@ -49,7 +56,6 @@ const Card = () => {
 
     // // Dispatch call ---->
     await dispatch({ type: "ALL_DELETE" })
-
 
     // // // Logic for add in db --->
 
@@ -96,7 +102,6 @@ const Card = () => {
     }
 
     await dispatch({ type: "ONE_MINUS", data: data })
-
   }
 
 
@@ -127,17 +132,17 @@ const Card = () => {
 
 
         {
-          (cartData.length !== 0)
+          (revCartData.length !== 0)
             ?
-            cartData.map((data, i) => {
+            revCartData.map((data, i) => {
               return (
 
                 <div key={i} className='row' >
 
-                  <div className="col-1 d-none d-sm-block text-info fw-bold">SR. {i + 1}</div>
+                  <div className="col-1 d-none d-sm-block text-info fw-bold">SR. {revCartData.length - i}</div>
                   <div className="col ">
                     <div className='mx-1'>
-                      <p className='d-sm-none text-info fw-bold'>SR. {i + 1}</p>
+                      <p className='d-sm-none text-info fw-bold'>SR. {revCartData.length - i}</p>
                       <p className='fs-4 fw-bold'>{data.name} <span className='fs-6 text-info' >({data.size})</span></p>
                       <p className='fs-5'> <span className='text-warning fw-bold'>{data.qut}</span> <span className='text-info'>*</span> ₹ {data.singlePrice}/-</p>
                     </div>

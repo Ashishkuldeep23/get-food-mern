@@ -23,7 +23,9 @@ const reducer = (state, action) => {
 
                 if (item.id !== action.data.id) {
                     newStateOneDel.push(item)
-                } else {
+                }else {
+                    // // // Here that item come that id get matched , now checking size of item 
+
                     if (item.size !== action.data.size) {
                         newStateOneDel.push(item)
                     }

@@ -147,12 +147,11 @@
 
     .card_data_div>img {
         width: 80vw;
-
+        height: 65%;
     }
 
     .card_data_div>div {
         padding: 0.5 vh;
-
         padding-left: 1vh;
         border-radius: 2vh;
         margin: 7vh 0;
@@ -170,3 +169,6 @@
 
 
 }
+
+
+
