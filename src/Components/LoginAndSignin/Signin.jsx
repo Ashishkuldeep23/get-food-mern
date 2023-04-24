@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import './style.css'
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
@@ -139,8 +140,21 @@ const Signin = () => {
 
       localStorage.setItem("get-food-signin", "done")
 
-      navigate("/logIn")
-      return alert("Data created successfull")
+
+      toast.success("Data created successfull", {
+        position: "top-right",
+        autoClose: 300,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
+
+      setTimeout(() => {
+        return navigate("/logIn")
+      }, 1200)
 
 
     }
@@ -151,6 +165,9 @@ const Signin = () => {
 
   return (
     <>
+
+      <ToastContainer />
+
       <div id='sign_in_div' className="log_sing_main " style={{ background: "url('https://images.news18.com/ibnlive/uploads/2022/04/sarso-ka-saag-and-makke-ki-roti-are-integral-to-punjab-and-punjabi-food-16498352053x2.jpg?impolicy=website&width=510&height=356')", backgroundSize: "cover" }}>
 
 
@@ -185,6 +202,8 @@ const Signin = () => {
         <button className=' btn btn-dark btn-lg fw-bold home_btn' onClick={() => { navigate("/") }}><i className="fa-solid fa-house"></i></button>
 
       </div>
+
+
 
     </>
   )
