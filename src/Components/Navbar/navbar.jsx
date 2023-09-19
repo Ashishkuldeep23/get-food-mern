@@ -21,8 +21,8 @@ const Navbar = ({ items }) => {
     const [viewModalCart, setViewModalCart] = useState(false)
     const [viewModalMyOrders, setViewModalMyOrders] = useState(false)
 
-    // // // Below state var is used to check user is previously logedIn or not.
-    const [isLogedIn, setIsLogedIn] = useState(localStorage.getItem("getFoodToken"))
+    // // // Below var is used to check user is previously logedIn or not.
+    const isLogedIn = localStorage.getItem("getFoodToken")
 
     const cartData = useCart()
 

@@ -2,10 +2,9 @@
 import React, { useReducer, useContext, createContext } from "react";
 
 
-const CartStateContext = createContext();
-const CartDispatchContext = createContext();
 
 
+// // // Reducer fn for card data.
 // // // By changing simple line i can revers my cardData array -->
 // // // Change in adding new item :- add new item first then spread old state value.
 // // // now adding new obj first and then spread previous state value 
@@ -86,6 +85,13 @@ const reducer = (state, action) => {
 
 
 
+// // // Here creating contextHook to export data. ( Data will get over-right by context Provider and it's value )
+const CartStateContext = createContext(null);
+const CartDispatchContext = createContext(null);
+
+
+
+// // // Creating a component that have card state , dispatch and what ever component coming inside that is taken as children prop.
 const CartProvider = ({ children }) => {
 
     let cartArr = localStorage.getItem("cartItems")
@@ -103,8 +109,9 @@ const CartProvider = ({ children }) => {
     )
 
 }
+ 
 
-
+// // // Here creating custome hooks (& export it) for state of card and aslo for dispatch-----> 
 const useCart = () => useContext(CartStateContext);
 const useDispatchCart = () => useContext(CartDispatchContext);
 

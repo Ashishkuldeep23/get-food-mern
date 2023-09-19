@@ -20,7 +20,7 @@ import { CartProvider } from "./Components/ContextReducer"
 function App() {
 
 
-  const [allDataOfApi, setAllDataOfApi] = useState([ [] , [] ])
+  const [allDataOfApi, setAllDataOfApi] = useState([[], []])
 
   const [items, setItems] = useState(allDataOfApi[0])
   const [foodCat, setFoodCat] = useState(allDataOfApi[1])
@@ -49,14 +49,8 @@ function App() {
   async function loadData() {
     // alert("ok Called")
 
-    let options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
 
-    let loadFoodData = await fetch(`${process.env.REACT_APP_BACKEND}/getfoodData`, options)
+    let loadFoodData = await fetch(`${process.env.REACT_APP_BACKEND}/getfoodData`)
     let data = await loadFoodData.json()
 
     if (data.status === false) {
@@ -99,7 +93,8 @@ function App() {
                 items={items}
                 menuList={menuList}
                 foodCat={foodCat}
-                findFood={findFood} />
+                findFood={findFood}
+              />
             </div>}
           />
           <Route path="/logIn" element={<Login />} />
